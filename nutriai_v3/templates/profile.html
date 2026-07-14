@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Profile – NutriAI{% endblock %}
+{% block content %}
+<div class="ph">
+  <div class="ph-title">Your Profile</div>
+  <div class="ph-sub">Manage your body metrics and account</div>
+</div>
+<div class="g2">
+  <!-- Current Info -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title"><div class="card-icon">👤</div> Current Metrics</div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-avatar">{{ user['name'][0].upper() }}</div>
+      <div>
+        <div class="prof-name">{{ user['name'] }}</div>
+        <div class="prof-email">{{ user['email'] }}</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    {% set bmi = (user['weight'] / ((user['height']/100)**2))|round(1) %}
+    {% set bmi_status = 'Underweight' if bmi < 18.5 else ('Normal' if bmi < 25 else ('Overweight' if bmi < 30 else 'Obese')) %}
+    <div class="info-row"><span class="info-key">Age</span><span class="info-val">{{ user['age'] }} years</span></div>
+    <div class="info-row"><span class="info-key">Gender</span><span class="info-val">{{ user['gender']|capitalize }}</span></div>
+    <div class="info-row"><span class="info-key">Height</span><span class="info-val">{{ user['height'] }} cm</span></div>
+    <div class="info-row"><span class="info-key">Weight</span><span class="info-val">{{ user['weight'] }} kg</span></div>
+    <div class="info-row"><span class="info-key">BMI</span><span class="info-val text-green">{{ bmi }} — {{ bmi_status }}</span></div>
+    <div class="info-row"><span class="info-key">Activity</span><span class="info-val">{{ user['activity']|capitalize if user['activity'] else 'Moderate' }}</span></div>
+    <div class="info-row"><span class="info-key">Member since</span><span class="info-val">{{ user['created_at'][:10] }}</span></div>
+  </div>
+
+  <!-- Update Form -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title"><div class="card-icon">✏️</div> Update Metrics</div>
+    </div>
+    <form method="POST">
+      <div class="field"><label>Age</label>
+        <input type="number" name="age" value="{{ user['age'] }}" min="10" max="100" required/></div>
+      <div class="field"><label>Height (cm)</label>
+        <input type="number" name="height" value="{{ user['height'] }}" step="0.1" required/></div>
+      <div class="field"><label>Current Weight (kg)</label>
+        <input type="number" name="weight" value="{{ user['weight'] }}" step="0.1" required/></div>
+      <div class="field"><label>Activity Level</label>
+        <select name="activity">
+          <option value="sedentary" {% if user['activity']=='sedentary' %}selected{% endif %}>Sedentary</option>
+          <option value="light" {% if user['activity']=='light' %}selected{% endif %}>Light (1–3x/week)</option>
+          <option value="moderate" {% if not user['activity'] or user['activity']=='moderate' %}selected{% endif %}>Moderate (3–5x/week)</option>
+          <option value="active" {% if user['activity']=='active' %}selected{% endif %}>Active (6–7x/week)</option>
+          <option value="very_active" {% if user['activity']=='very_active' %}selected{% endif %}>Very Active</option>
+        </select></div>
+      <button type="submit" class="btn btn-primary" style="margin-top:.5rem">Save Changes →</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Food History – NutriAI{% endblock %}
+{% block content %}
+<div class="ph">
+  <div class="ph-title">Food History</div>
+  <div class="ph-sub">Complete meal log — last 200 entries</div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <div class="card-title"><div class="card-icon">📋</div> All Meals</div>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <input type="text" id="history-search" placeholder="Search food..." 
+        style="padding:.4rem .8rem;border-radius:8px;border:1px solid var(--border2);background:rgba(255,255,255,.05);color:var(--text);font-size:.8rem;outline:none;width:180px;">
+      <span class="text-muted" style="font-size:.78rem">{{ logs|length }} entries</span>
+    </div>
+  </div>
+  {% if logs %}
+  <div class="tbl-wrap">
+  <table class="htable" id="history-table">
+    <thead>
+      <tr>
+        <th>Food Item</th><th>Meal</th><th>Calories</th>
+        <th>Protein</th><th>Fat</th><th>Date</th><th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for log in logs %}
+      <tr>
+        <td style="color:var(--text);font-weight:500;max-width:200px">{{ log['food_name'] }}</td>
+        <td><span class="meal-pill {{ log['meal_type'] }}">{{ log['meal_type'] }}</span></td>
+        <td class="mono" style="color:var(--green)">{{ log['calories'] }}</td>
+        <td class="mono" style="color:var(--blue)">{{ log['protein'] }}g</td>
+        <td class="mono" style="color:var(--orange)">{{ log['fat'] }}g</td>
+        <td>{{ log['log_date'] }}</td>
+        <td class="mono" style="color:var(--text3)">{{ log['log_time'][:5] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+  <div class="log-empty">
+    <div style="font-size:2rem;margin-bottom:.75rem">📋</div>
+    No food logs yet. Start logging from the dashboard!
+  </div>
+  {% endif %}
+</div>
+
+<script>
+  document.getElementById('history-search').addEventListener('input', function(e) {
+    const q = e.target.value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#history-table tbody tr');
+    rows.forEach(row => {
+      const name = row.cells[0].textContent.toLowerCase();
+      const meal = row.cells[1].textContent.toLowerCase();
+      row.style.display = (name.includes(q) || meal.includes(q)) ? '' : 'none';
+    });
+  });
+</script>
+{% endblock %}

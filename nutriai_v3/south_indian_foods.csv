@@ -1,0 +1,666 @@
+food_name,calories,protein,fat,carbs,fiber,category,meal_type
+Idli,130,3.9,0.4,24,1.0,Breakfast,breakfast
+Dosa,150,3.2,4.5,26,0.8,Breakfast,breakfast
+Masala Dosa,195,4.5,7.5,28,1.5,Breakfast,breakfast
+Rava Dosa,180,3.5,7.0,26,0.5,Breakfast,breakfast|dinner
+Onion Dosa,190,3.8,7.5,28,1.0,Breakfast,breakfast
+Egg Dosa,210,8.0,9.0,26,0.8,Breakfast,breakfast
+Cheese Dosa,250,7.5,12.0,28,0.8,Breakfast,breakfast
+Ven Pongal,170,4.5,7.0,24,1.2,Breakfast,breakfast
+Sweet Pongal,260,3.5,6.0,48,0.5,Breakfast,breakfast
+Upma,150,3.5,4.5,24,1.5,Breakfast,breakfast
+Rava Upma,155,3.8,5.0,24,1.0,Breakfast,breakfast
+Vermicelli Upma,160,3.5,4.0,28,0.8,Breakfast,breakfast
+Poha,160,3.0,5.0,28,1.0,Breakfast,breakfast
+Puttu,230,3.0,4.0,48,2.0,Breakfast,breakfast
+Appam,120,2.0,0.5,26,0.5,Breakfast,breakfast|dinner
+Egg Appam,180,8.0,6.0,26,0.5,Breakfast,breakfast
+Idiyappam,130,2.5,0.3,28,0.8,Breakfast,breakfast|dinner
+Poori,300,5.0,14.0,38,1.5,Breakfast,breakfast
+Paratha,280,5.5,12.0,36,1.8,Breakfast,breakfast
+Aloo Paratha,240,5.0,9.0,35,2.0,Breakfast,breakfast
+Gobi Paratha,220,5.0,8.0,32,2.5,Breakfast,breakfast
+Paneer Paratha,280,9.0,12.0,34,1.5,Breakfast,breakfast
+Pesarattu,130,7.0,1.5,22,3.0,Breakfast,breakfast
+Uttapam,180,4.0,5.5,28,1.5,Breakfast,breakfast|dinner
+Onion Uttapam,185,4.2,5.5,28,1.8,Breakfast,breakfast
+Medu Vada,257,5.5,12.0,30,2.0,Breakfast,breakfast|snack
+Vada,260,5.5,12.0,30,2.0,Snack,breakfast|snack
+Bread Toast,310,9.0,4.0,58,3.0,Breakfast,breakfast
+Bread Butter,320,8.0,10.0,52,2.5,Breakfast,breakfast
+Omelette,154,11.0,12.0,0.6,0,Breakfast,breakfast
+Egg Bhurji,170,12.0,13.0,2.0,0.3,Breakfast,breakfast
+Boiled Egg,155,13.0,11.0,1.1,0,Breakfast,breakfast
+French Toast,260,9.0,12.0,30,1.0,Breakfast,breakfast
+Cornflakes With Milk,180,5.0,3.0,35,1.5,Breakfast,breakfast
+Oats Porridge,130,5.0,2.5,23,3.5,Breakfast,breakfast
+Ragi Porridge,120,3.5,1.5,25,3.5,Breakfast,breakfast
+Dalia,100,3.5,1.0,20,3.0,Breakfast,breakfast
+Pongal,200,4.5,7.0,30,1.2,Breakfast,breakfast
+Kichdi,150,4.5,4.0,24,1.5,Breakfast,breakfast|dinner
+White Rice,130,2.7,0.3,28,0.4,Rice,lunch|dinner
+Brown Rice,112,2.6,0.9,24,1.8,Rice,lunch|dinner
+Sambar Rice,140,4.2,3.0,25,2.0,Rice,lunch
+Curd Rice,125,3.5,2.8,22,0.5,Rice,lunch
+Lemon Rice,160,3.0,5.0,26,0.8,Rice,lunch
+Tamarind Rice,175,3.0,5.5,28,1.0,Rice,lunch
+Coconut Rice,200,3.5,8.0,30,1.5,Rice,lunch
+Tomato Rice,155,3.0,4.5,26,1.2,Rice,lunch
+Vegetable Rice,145,3.5,3.5,25,2.0,Rice,lunch
+Jeera Rice,150,3.0,4.0,26,0.5,Rice,lunch|dinner
+Ghee Rice,185,2.8,7.0,28,0.3,Rice,lunch|dinner
+Fried Rice,170,4.0,5.5,26,1.0,Rice,lunch|dinner
+Egg Fried Rice,195,7.5,6.5,26,1.0,Rice,lunch|dinner
+Chicken Fried Rice,210,10.0,7.0,26,1.0,Rice,lunch|dinner
+Schezwan Fried Rice,200,5.0,7.0,28,1.2,Rice,lunch|dinner
+Mushroom Fried Rice,175,5.5,5.0,27,1.5,Rice,lunch|dinner
+Biryani,200,6.5,7.0,28,1.0,Rice,lunch|dinner
+Chicken Biryani,220,10.5,8.0,26,0.8,Rice,lunch|dinner
+Mutton Biryani,240,12.0,10.0,24,0.8,Rice,lunch|dinner
+Egg Biryani,195,8.0,6.5,26,0.8,Rice,lunch|dinner
+Veg Biryani,175,4.5,5.0,28,1.5,Rice,lunch|dinner
+Hyderabadi Biryani,230,11.0,9.0,26,0.8,Rice,lunch|dinner
+Prawn Biryani,210,12.0,7.0,25,0.8,Rice,lunch|dinner
+Fish Biryani,200,11.0,6.5,26,0.8,Rice,lunch|dinner
+Chicken Rice,180,9.0,5.0,25,0.5,Rice,lunch|dinner
+Pulao,165,3.5,4.5,28,1.0,Rice,lunch|dinner
+Veg Pulao,160,3.5,4.0,28,1.5,Rice,lunch|dinner
+Chicken Pulao,185,8.0,5.5,26,1.0,Rice,lunch|dinner
+Khichdi,150,4.5,4.0,24,1.5,Rice,lunch|dinner
+Pongal Rice,200,4.5,7.0,30,1.2,Rice,lunch
+Bisi Bele Bath,170,5.0,5.0,26,2.5,Rice,lunch
+Vangi Bath,165,3.5,5.0,26,2.0,Rice,lunch
+Sambar,62,3.5,1.5,9,3.0,Curry,lunch|dinner
+Rasam,25,0.8,0.5,4.5,0.5,Curry,lunch|dinner
+Dal,120,7.0,2.5,18,4.0,Curry,lunch|dinner
+Dal Tadka,130,7.5,4.0,16,4.0,Curry,lunch|dinner
+Dal Fry,140,8.0,4.5,16,3.5,Curry,lunch|dinner
+Dal Makhani,150,6.0,7.0,16,3.0,Curry,lunch|dinner
+Chicken Curry,150,15.0,8.0,5,0.8,Curry,lunch|dinner
+Butter Chicken,180,14.0,11.0,6,0.5,Curry,lunch|dinner
+Kadai Chicken,170,16.0,10.0,4,0.8,Curry,lunch|dinner
+Chicken Chettinad,175,16.5,10.0,3,0.8,Curry,lunch|dinner
+Chicken Korma,190,14.0,12.0,6,0.5,Curry,lunch|dinner
+Chicken Tikka Masala,175,15.0,10.0,6,0.8,Curry,lunch|dinner
+Fish Curry,120,14.0,5.5,4,0.5,Curry,lunch|dinner
+Fish Fry,200,18.0,12.0,5,0.2,Curry,lunch|dinner
+Prawn Masala,140,16.0,6.5,4,0.5,Curry,lunch|dinner
+Egg Curry,130,9.0,8.5,5,0.5,Curry,lunch|dinner
+Egg Masala,140,9.5,9.0,5,0.8,Curry,lunch|dinner
+Mutton Curry,180,16.0,11.0,4,0.5,Curry,lunch|dinner
+Mutton Rogan Josh,175,15.0,10.5,5,0.8,Curry,lunch|dinner
+Lamb Keema,185,16.0,12.0,3,0.5,Curry,lunch|dinner
+Paneer Butter Masala,230,10.0,18.0,8,1.0,Curry,lunch|dinner
+Palak Paneer,170,9.0,12.0,6,2.0,Curry,lunch|dinner
+Paneer Tikka,220,14.0,16.0,5,1.0,Curry,lunch|dinner|snack
+Shahi Paneer,240,10.0,18.0,10,1.0,Curry,lunch|dinner
+Kadai Paneer,210,10.0,15.0,8,1.5,Curry,lunch|dinner
+Mutter Paneer,180,9.0,12.0,10,2.0,Curry,lunch|dinner
+Aloo Gobi,90,2.5,3.5,13,2.5,Curry,lunch|dinner
+Aloo Mutter,110,3.5,4.0,15,2.5,Curry,lunch|dinner
+Aloo Palak,100,3.0,4.0,13,2.5,Curry,lunch|dinner
+Aloo Jeera,120,2.5,5.0,16,2.0,Curry,lunch|dinner
+Chana Masala,150,8.0,5.0,20,5.0,Curry,lunch|dinner
+Chole,150,8.0,5.0,20,5.0,Curry,lunch|dinner
+Rajma,130,7.5,3.0,20,6.0,Curry,lunch|dinner
+Kootu,85,4.0,3.0,12,3.0,Curry,lunch|dinner
+Avial,90,2.5,5.0,10,3.0,Curry,lunch|dinner
+Olan,75,2.0,4.0,8,2.5,Curry,lunch|dinner
+Kurma,130,3.5,7.0,14,2.5,Curry,lunch|dinner
+Mixed Veg Curry,80,2.5,3.0,12,3.0,Curry,lunch|dinner
+Bhindi Masala,95,3.0,5.0,10,3.5,Curry,lunch|dinner
+Baingan Bharta,105,2.5,5.5,12,3.5,Curry,lunch|dinner
+Lauki Ki Sabzi,40,1.5,1.5,6,1.5,Curry,lunch|dinner
+Methi Aloo,110,3.0,5.0,14,2.5,Curry,lunch|dinner
+Mushroom Masala,100,4.0,5.0,10,2.0,Curry,lunch|dinner
+Malai Kofta,250,6.0,18.0,16,2.0,Curry,lunch|dinner
+Navratan Korma,180,5.0,10.0,18,2.5,Curry,lunch|dinner
+Poriyal,75,2.0,3.5,10,3.0,Side Dish,lunch|dinner
+Keerai Masiyal,60,3.0,2.0,8,4.0,Side Dish,lunch|dinner
+Keerai Kootu,80,4.0,3.0,10,4.0,Side Dish,lunch|dinner
+Podimas,110,3.0,5.0,14,2.0,Side Dish,lunch|dinner
+Thoran,85,2.5,4.0,10,3.5,Side Dish,lunch|dinner
+Kootu Curry,90,3.5,4.0,12,3.0,Side Dish,lunch|dinner
+Pachadi,45,1.5,1.0,8,1.0,Side Dish,lunch|dinner
+Chapati,240,7.0,3.5,44,3.5,Bread,lunch|dinner
+Roti,240,7.5,3.5,45,3.5,Bread,lunch|dinner
+Phulka,200,6.5,2.0,42,3.0,Bread,lunch|dinner
+Naan,290,8.5,5.5,50,2.0,Bread,lunch|dinner
+Butter Naan,320,8.5,10.0,48,2.0,Bread,lunch|dinner
+Garlic Naan,300,8.5,7.0,50,2.0,Bread,lunch|dinner
+Cheese Naan,330,10.0,12.0,45,1.5,Bread,lunch|dinner
+Kulcha,310,8.0,8.0,50,2.0,Bread,lunch|dinner
+Tandoori Roti,260,7.5,3.0,48,3.5,Bread,lunch|dinner
+Rumali Roti,220,7.0,2.5,44,2.5,Bread,lunch|dinner
+Missi Roti,260,9.0,5.0,42,4.0,Bread,lunch|dinner
+Parotta,320,7.0,12.0,46,1.5,Bread,dinner
+Kothu Parotta,280,8.0,12.0,36,1.5,Bread,dinner
+Bhatura,330,6.5,15.0,42,1.5,Bread,lunch|dinner
+Pav,260,7.0,4.0,48,2.0,Bread,lunch|dinner|snack
+Chicken Fry,220,22.0,13.0,5,0.3,Non-Veg,lunch|dinner
+Chicken 65,250,18.0,15.0,10,0.5,Non-Veg,lunch|dinner|snack
+Chicken Lollipop,230,17.0,14.0,10,0.5,Non-Veg,snack
+Chicken Wings,190,17.0,12.0,3,0.2,Non-Veg,lunch|dinner|snack
+Chicken Shawarma,230,15.0,10.0,20,1.5,Non-Veg,snack
+Chicken Momos,200,12.0,8.0,22,1.0,Non-Veg,snack
+Chicken Manchurian,220,14.0,12.0,16,1.0,Non-Veg,lunch|dinner
+Chicken Kebab,180,20.0,10.0,4,0.5,Non-Veg,snack
+Tandoori Chicken,170,25.0,7.0,2,0.5,Non-Veg,lunch|dinner
+Fish Fry,200,18.0,12.0,5,0.2,Non-Veg,lunch|dinner
+Fish Fingers,220,14.0,12.0,16,0.5,Non-Veg,snack
+Prawn Fry,180,20.0,9.0,4,0.2,Non-Veg,lunch|dinner
+Mutton Fry,260,20.0,18.0,5,0.3,Non-Veg,lunch|dinner
+Mutton Chops,240,18.0,16.0,6,0.3,Non-Veg,lunch|dinner
+Egg,155,13.0,11.0,1.1,0,Staple,breakfast|snack
+Egg Roll,280,12.0,14.0,26,1.5,Non-Veg,snack
+Chicken Roll,300,14.0,15.0,28,1.5,Non-Veg,snack
+Seekh Kebab,210,18.0,14.0,4,0.5,Non-Veg,snack
+Samosa,260,4.5,14.0,30,2.0,Snack,snack
+Onion Samosa,250,4.0,13.0,30,2.0,Snack,snack
+Bajji,200,3.0,10.0,25,2.0,Snack,snack
+Bonda,220,3.5,12.0,26,1.5,Snack,snack
+Sundal,120,6.0,2.0,20,5.0,Snack,snack
+Murukku,450,7.0,20.0,60,2.0,Snack,snack
+Mixture,480,10.0,25.0,55,3.0,Snack,snack
+Pakoda,230,5.0,13.0,25,2.0,Snack,snack
+Onion Pakoda,220,4.5,12.0,26,2.0,Snack,snack
+Cutlet,200,6.0,10.0,22,1.5,Snack,snack
+Paniyaram,140,3.0,4.0,24,1.0,Snack,snack
+Vadai,260,5.5,12.0,30,2.0,Snack,snack
+Spring Roll,220,5.0,10.0,28,1.5,Snack,snack
+Aloo Tikki,200,3.5,10.0,25,2.0,Snack,snack
+Pani Puri,150,3.0,5.0,25,1.5,Snack,snack
+Bhel Puri,180,4.0,5.0,30,2.0,Snack,snack
+Sev Puri,200,4.0,8.0,28,2.0,Snack,snack
+Dahi Puri,170,4.5,5.0,26,1.5,Snack,snack
+Masala Puri,210,4.0,8.0,30,2.5,Snack,snack
+Kachori,320,5.0,18.0,35,2.0,Snack,snack
+Pav Bhaji,250,6.0,10.0,34,3.0,Snack,snack
+Vada Pav,290,5.5,12.0,40,2.0,Snack,snack
+Gobi Manchurian,180,4.0,8.0,24,2.0,Snack,snack
+Paneer Manchurian,220,8.0,12.0,20,1.5,Snack,snack
+Bread Pakoda,280,6.0,14.0,32,2.0,Snack,snack
+Dabeli,220,5.0,8.0,34,2.5,Snack,snack
+Dhokla,160,6.0,4.0,26,2.0,Snack,snack
+Khandvi,150,5.0,5.0,22,1.5,Snack,snack
+Khaman,180,6.0,5.0,28,2.0,Snack,snack
+Mysore Bonda,250,4.0,14.0,28,1.5,Snack,snack
+Banana Chips,520,2.0,30.0,60,3.0,Snack,snack
+Tapioca Chips,480,1.0,25.0,62,2.5,Snack,snack
+Chips,540,5.0,35.0,52,3.0,Snack,snack
+Payasam,180,4.0,5.0,30,0.5,Sweet,snack
+Kheer,150,4.0,4.5,24,0.3,Sweet,snack
+Gulab Jamun,320,4.0,12.0,50,0.3,Sweet,snack
+Jalebi,370,2.5,10.0,65,0.2,Sweet,snack
+Kesari,280,3.0,8.0,50,0.3,Sweet,snack
+Laddu,360,5.0,15.0,52,1.0,Sweet,snack
+Halwa,300,3.5,12.0,45,0.5,Sweet,snack
+Rasgulla,190,3.5,0.5,42,0,Sweet,snack
+Rasmalai,230,5.0,8.0,35,0,Sweet,snack
+Kaju Katli,500,10.0,25.0,58,1.0,Sweet,snack
+Barfi,380,6.0,15.0,55,0.5,Sweet,snack
+Mysore Pak,450,5.0,25.0,50,0.5,Sweet,snack
+Peda,400,7.0,18.0,52,0.3,Sweet,snack
+Sandesh,310,8.0,10.0,48,0.2,Sweet,snack
+Jangri,370,3.0,12.0,62,0.3,Sweet,snack
+Basundi,145,4.0,5.0,22,0,Sweet,snack
+Rava Kesari,290,3.0,9.0,48,0.3,Sweet,snack
+Carrot Halwa,175,3.0,6.0,28,2.0,Sweet,snack
+Moong Dal Halwa,350,6.0,16.0,45,2.0,Sweet,snack
+Badam Halwa,400,8.0,20.0,48,2.0,Sweet,snack
+Double Ka Meetha,280,5.0,10.0,42,0.5,Sweet,snack
+Filter Coffee,45,1.5,1.5,6,0,Drink,snack
+Coffee,45,1.5,1.5,6,0,Drink,snack
+Black Coffee,2,0.3,0,0.3,0,Drink,snack
+Tea,35,0.8,1.0,5.5,0,Drink,snack
+Green Tea,2,0.2,0,0.3,0,Drink,snack
+Masala Tea,45,1.0,1.5,6,0,Drink,snack
+Buttermilk,18,1.5,0.3,2.5,0,Drink,snack
+Lassi,75,3.0,2.0,12,0,Drink,snack
+Sweet Lassi,90,3.0,2.5,15,0,Drink,snack
+Mango Lassi,100,3.0,2.0,18,0.5,Drink,snack
+Tender Coconut,20,0.7,0.2,4,1.0,Drink,snack
+Coconut Water,20,0.7,0.2,4,1.0,Drink,snack
+Mango Juice,60,0.5,0.2,14,0.5,Drink,snack
+Orange Juice,45,0.7,0.2,10,0.2,Drink,snack
+Lime Juice,40,0.3,0.1,9,0.2,Drink,snack
+Sugarcane Juice,80,0.3,0.1,20,0,Drink,snack
+Jigarthanda,150,3.0,5.0,24,0.5,Drink,snack
+Badam Milk,120,4.0,5.0,16,1.0,Drink,snack
+Rose Milk,85,2.5,2.5,14,0,Drink,snack
+Horlicks,380,12.0,5.0,72,2.0,Drink,breakfast|snack
+Protein Shake,120,25.0,2.0,5,1.0,Drink,breakfast|snack
+Banana,90,1.1,0.3,23,2.6,Fruit,snack
+Apple,52,0.3,0.2,14,2.4,Fruit,snack
+Mango,60,0.8,0.4,15,1.6,Fruit,snack
+Orange,47,0.9,0.1,12,2.4,Fruit,snack
+Papaya,43,0.5,0.3,11,1.7,Fruit,snack
+Watermelon,30,0.6,0.2,8,0.4,Fruit,snack
+Grapes,69,0.7,0.2,18,0.9,Fruit,snack
+Pomegranate,83,1.7,1.2,19,4.0,Fruit,snack
+Pineapple,50,0.5,0.1,13,1.4,Fruit,snack
+Guava,68,2.6,1.0,14,5.4,Fruit,snack
+Sapota,83,0.4,1.1,20,5.3,Fruit,snack
+Jackfruit,95,1.7,0.6,23,1.5,Fruit,snack
+Custard Apple,94,2.1,0.6,24,4.4,Fruit,snack
+Dates,282,2.5,0.4,75,8.0,Fruit,snack
+Dry Grapes,300,3.0,0.5,79,3.7,Fruit,snack
+Strawberry,33,0.7,0.3,8,2.0,Fruit,snack
+Kiwi,61,1.1,0.5,15,3.0,Fruit,snack
+Lychee,66,0.8,0.4,17,1.3,Fruit,snack
+Fig,74,0.8,0.3,19,2.9,Fruit,snack
+Plum,46,0.7,0.3,11,1.4,Fruit,snack
+Pear,57,0.4,0.1,15,3.1,Fruit,snack
+Peach,39,0.9,0.3,10,1.5,Fruit,snack
+Coconut Fresh,354,3.3,33.5,15,9.0,Fruit,snack
+Chicken Breast,165,31.0,3.6,0,0,Staple,lunch|dinner
+Chicken,190,25.0,9.0,0,0,Staple,lunch|dinner
+Chicken Thigh,210,20.0,13.0,0,0,Staple,lunch|dinner
+Chicken Liver,140,21.0,5.5,1,0,Staple,lunch|dinner
+Mutton,250,25.0,15.0,0,0,Staple,lunch|dinner
+Beef,250,26.0,15.0,0,0,Staple,lunch|dinner
+Pork,242,27.0,14.0,0,0,Staple,lunch|dinner
+Fish,120,22.0,3.0,0,0,Staple,lunch|dinner
+Salmon,208,20.0,13.0,0,0,Staple,lunch|dinner
+Tuna,130,29.0,1.0,0,0,Staple,lunch|dinner
+Sardine,208,25.0,11.0,0,0,Staple,lunch|dinner
+Prawn,100,20.0,1.5,0.2,0,Staple,lunch|dinner
+Crab,87,18.0,1.0,0,0,Staple,lunch|dinner
+Squid,92,15.6,1.4,3,0,Staple,lunch|dinner
+Paneer,265,18.0,20.0,3,0,Staple,lunch|dinner
+Tofu,76,8.0,4.8,2,0.3,Staple,lunch|dinner
+Soya Chunks,345,52.0,0.5,33,13.0,Staple,lunch|dinner
+Curd,60,3.5,3.3,4.7,0,Dairy,snack
+Yogurt,60,3.5,3.3,4.7,0,Dairy,snack
+Greek Yogurt,97,9.0,5.0,3.6,0,Dairy,snack
+Milk,62,3.2,3.3,4.8,0,Dairy,breakfast|snack
+Skimmed Milk,34,3.4,0.1,5.0,0,Dairy,breakfast|snack
+Cheese,350,25.0,27.0,1.3,0,Dairy,snack
+Cottage Cheese,98,11.0,4.3,3.4,0,Dairy,snack
+Ghee,900,0,99.5,0,0,Staple,breakfast|lunch|dinner
+Butter,717,0.9,81.0,0.1,0,Staple,breakfast
+Coconut Oil,862,0,100,0,0,Staple,breakfast|lunch|dinner
+Olive Oil,884,0,100,0,0,Staple,lunch|dinner
+Honey,304,0.3,0,82,0.2,Staple,breakfast|snack
+Coconut Chutney,135,2.0,10.0,10,3.0,Side Dish,breakfast
+Tomato Chutney,50,1.0,2.0,7,1.5,Side Dish,breakfast
+Mint Chutney,30,1.5,0.5,5,2.0,Side Dish,lunch|dinner|snack
+Onion Chutney,60,1.0,2.0,9,1.5,Side Dish,breakfast
+Pickle,150,2.0,10.0,12,2.0,Side Dish,lunch|dinner
+Mango Pickle,180,1.5,12.0,16,2.0,Side Dish,lunch|dinner
+Papad,320,20.0,6.0,48,5.0,Side Dish,lunch|dinner
+Fried Papad,350,18.0,12.0,44,4.5,Side Dish,lunch|dinner
+Raita,50,2.0,2.0,6,0.5,Side Dish,lunch|dinner
+Boondi Raita,65,2.5,2.5,8,0.5,Side Dish,lunch|dinner
+Noodles,138,5.0,2.0,25,1.8,Chinese,lunch|dinner
+Hakka Noodles,160,5.0,4.5,26,1.5,Chinese,lunch|dinner
+Chow Mein,180,6.0,6.0,26,1.5,Chinese,lunch|dinner
+Manchurian,170,4.0,8.0,22,2.0,Chinese,lunch|dinner
+Gobi Manchurian Dry,200,4.5,10.0,24,2.5,Chinese,lunch|dinner
+Sweet Corn Soup,55,2.0,1.0,10,1.0,Chinese,lunch|dinner
+Hot And Sour Soup,45,2.5,1.5,6,0.5,Chinese,lunch|dinner
+Momos,200,8.0,6.0,28,1.5,Chinese,snack
+Veg Momos,180,5.0,5.0,28,2.0,Chinese,snack
+Pizza,270,11.0,10.0,34,2.0,Fast Food,lunch|dinner|snack
+Burger,260,12.0,10.0,30,1.5,Fast Food,lunch|dinner|snack
+Veg Burger,240,8.0,8.0,34,2.5,Fast Food,lunch|dinner|snack
+Chicken Burger,280,14.0,12.0,28,1.5,Fast Food,lunch|dinner|snack
+French Fries,312,3.4,15.0,41,3.8,Fast Food,snack
+Sandwich,250,10.0,8.0,34,2.5,Fast Food,breakfast|lunch|snack
+Grilled Sandwich,280,11.0,12.0,32,2.0,Fast Food,breakfast|lunch|snack
+Club Sandwich,300,14.0,14.0,30,2.0,Fast Food,lunch|snack
+Wrap,260,10.0,9.0,34,2.5,Fast Food,lunch|snack
+Pasta,160,6.0,2.0,30,1.8,Continental,lunch|dinner
+White Pasta,160,6.0,2.0,30,1.8,Continental,lunch|dinner
+Red Sauce Pasta,130,5.0,3.0,22,2.5,Continental,lunch|dinner
+Alfredo Pasta,200,7.0,10.0,22,1.5,Continental,lunch|dinner
+Macaroni Cheese,280,11.0,12.0,32,1.5,Continental,lunch|dinner
+Pancake,230,6.0,8.0,34,1.0,Continental,breakfast
+Waffle,290,7.0,12.0,38,1.0,Continental,breakfast
+Croissant,400,8.0,21.0,46,2.0,Continental,breakfast|snack
+Cake,350,5.0,15.0,50,1.0,Sweet,snack
+Chocolate,545,5.0,31.0,60,7.0,Sweet,snack
+Ice Cream,210,3.5,11.0,24,0.7,Sweet,snack
+Brownie,400,5.0,20.0,50,2.0,Sweet,snack
+Biscuit,450,6.0,18.0,65,2.5,Snack,snack
+Bread,265,9.0,3.2,49,2.7,Staple,breakfast|snack
+Wheat Flour,340,12.0,1.7,72,10.7,Staple,breakfast|lunch|dinner
+Rice Flour,366,6.0,1.4,80,2.4,Staple,breakfast|lunch|dinner
+Besan,356,22.0,5.0,58,10.0,Staple,breakfast|lunch|dinner|snack
+Semolina,360,11.0,1.0,73,3.9,Staple,breakfast
+Sugar,400,0,0,100,0,Staple,breakfast|snack
+Jaggery,383,0.4,0.1,98,0,Staple,breakfast|snack
+Salt,0,0,0,0,0,Staple,breakfast|lunch|dinner
+Peanut,567,26.0,49.0,16,8.5,Dry Fruit,snack
+Almond,579,21.0,50.0,22,12.5,Dry Fruit,snack
+Cashew,553,18.0,44.0,30,3.3,Dry Fruit,snack
+Walnut,654,15.0,65.0,14,6.7,Dry Fruit,snack
+Pistachio,560,20.0,45.0,28,10.0,Dry Fruit,snack
+Raisin,299,3.1,0.5,79,3.7,Dry Fruit,snack
+Dried Fig,249,3.3,1.0,64,10.0,Dry Fruit,snack
+Flax Seeds,534,18.0,42.0,29,27.0,Dry Fruit,breakfast|snack
+Chia Seeds,486,17.0,31.0,42,34.0,Dry Fruit,breakfast|snack
+Sunflower Seeds,584,21.0,51.0,20,9.0,Dry Fruit,snack
+Sprouts,30,3.0,0.2,5,1.8,Staple,breakfast|snack
+Moong Sprouts,30,3.0,0.2,5,1.8,Staple,breakfast|snack
+Boiled Potato,87,1.9,0.1,20,1.8,Staple,lunch|dinner
+Sweet Potato,86,1.6,0.1,20,3.0,Staple,lunch|dinner|snack
+Corn,86,3.3,1.4,19,2.7,Staple,snack
+Mushroom,22,3.1,0.3,3.3,1.0,Staple,lunch|dinner
+Onion,40,1.1,0.1,9.3,1.7,Staple,lunch|dinner
+Tomato,18,0.9,0.2,3.9,1.2,Staple,lunch|dinner
+Cucumber,15,0.7,0.1,3.6,0.5,Staple,snack
+Carrot,41,0.9,0.2,10,2.8,Staple,snack
+Beetroot,43,1.6,0.2,10,2.8,Staple,lunch|dinner
+Broccoli,34,2.8,0.4,7,2.6,Staple,lunch|dinner
+Spinach,23,2.9,0.4,3.6,2.2,Staple,lunch|dinner
+Cabbage,25,1.3,0.1,6,2.5,Staple,lunch|dinner
+Green Peas,81,5.4,0.4,14,5.1,Staple,lunch|dinner
+Beans,31,1.8,0.1,7,3.4,Staple,lunch|dinner
+Ladies Finger,33,2.0,0.2,7,3.2,Staple,lunch|dinner
+Drumstick,37,2.1,0.2,8,3.2,Staple,lunch|dinner
+Bitter Gourd,17,1.0,0.2,3.7,2.8,Staple,lunch|dinner
+Snake Gourd,18,0.6,0.3,3.4,0.6,Staple,lunch|dinner
+Ridge Gourd,18,0.5,0.1,4,0.5,Staple,lunch|dinner
+Bottle Gourd,15,0.6,0.0,3.4,0.5,Staple,lunch|dinner
+Ash Gourd,10,0.4,0.0,2.2,0.5,Staple,lunch|dinner
+Raw Banana,90,1.2,0.3,23,2.6,Staple,lunch|dinner
+Yam,118,1.5,0.2,28,4.1,Staple,lunch|dinner
+Tapioca,160,1.4,0.3,38,1.8,Staple,lunch|dinner
+Salad,20,1.0,0.2,4,1.5,Side Dish,lunch|dinner
+Green Salad,15,0.8,0.1,3,1.5,Side Dish,lunch|dinner
+Fruit Salad,50,0.5,0.2,13,1.5,Side Dish,snack
+Set Dosa,140,3.0,3.5,24,0.8,Breakfast,breakfast
+Neer Dosa,120,2.0,1.0,26,0.5,Breakfast,breakfast|dinner
+Ghee Roast Dosa,220,3.5,10.0,28,0.8,Breakfast,breakfast
+Mysore Masala Dosa,210,4.5,9.0,28,1.5,Breakfast,breakfast
+Ada Dosa,145,2.5,3.0,28,0.8,Breakfast,breakfast
+Mini Idli,130,3.9,0.4,24,1.0,Breakfast,breakfast
+Rava Idli,145,4.0,3.5,24,1.0,Breakfast,breakfast
+Kanchipuram Idli,155,4.5,4.0,24,1.2,Breakfast,breakfast
+Ramasseri Idli,140,3.8,1.5,26,1.0,Breakfast,breakfast
+Semia Idli,150,4.0,3.0,26,1.0,Breakfast,breakfast
+Karuppatti Pongal,190,3.5,5.0,34,1.0,Breakfast,breakfast
+Sakkarai Pongal,250,3.0,5.5,48,0.5,Sweet,breakfast
+Thatte Idli,135,3.5,0.5,26,1.0,Breakfast,breakfast
+Button Idli,130,3.9,0.4,24,1.0,Breakfast,breakfast
+Pazhaya Soru,110,2.5,0.5,24,0.5,Breakfast,breakfast
+Kozhukattai,160,3.0,3.0,30,1.5,Sweet,breakfast|snack
+Uppu Kozhukattai,150,3.5,4.0,26,1.5,Breakfast,breakfast|snack
+Modhak,170,3.0,4.0,30,1.5,Sweet,snack
+Adai,165,6.5,4.0,26,3.5,Breakfast,breakfast|dinner
+Adai Dosai,175,7.0,4.5,26,3.5,Breakfast,breakfast|dinner
+Sada Dosai,150,3.2,4.5,26,0.8,Breakfast,breakfast
+Thosai,150,3.2,4.5,26,0.8,Breakfast,breakfast
+Kal Dosa,130,3.0,2.0,26,0.8,Breakfast,breakfast
+Paneer Dosa,235,8.5,11.0,26,0.8,Breakfast,breakfast
+Maavu Vadai,170,5.0,8.0,20,2.0,Snack,snack
+Masala Vada,175,6.0,8.5,20,2.5,Snack,snack
+Moong Dal Vada,165,6.5,7.5,20,2.0,Snack,snack
+Payaru Vada,160,7.0,7.0,18,3.0,Snack,snack
+Cabbage Vada,155,5.0,7.5,18,2.5,Snack,snack
+Injipuli,55,0.8,2.0,9,1.0,Side Dish,lunch|dinner
+Mor Kuzhambu,45,2.0,2.0,5,1.0,Curry,lunch|dinner
+Kara Kuzhambu,70,2.5,3.0,8,2.0,Curry,lunch|dinner
+Vatha Kuzhambu,65,2.0,2.5,9,2.0,Curry,lunch|dinner
+Puli Kuzhambu,60,2.0,2.0,9,2.0,Curry,lunch|dinner
+Milagu Kuzhambu,55,2.5,2.0,7,1.5,Curry,lunch|dinner
+Vendakkai Kuzhambu,70,2.5,2.5,10,3.0,Curry,lunch|dinner
+Manathakkali Kuzhambu,50,2.0,1.5,7,2.0,Curry,lunch|dinner
+Drumstick Sambar,65,3.5,1.5,9,3.5,Curry,lunch|dinner
+Vendhaya Kuzhambu,58,2.5,2.0,8,2.5,Curry,lunch|dinner
+Kollu Rasam,30,1.5,0.5,5,1.5,Curry,lunch|dinner
+Pepper Rasam,22,0.8,0.5,4,0.8,Curry,lunch|dinner
+Tomato Rasam,28,0.8,0.5,5,0.8,Curry,lunch|dinner
+Lemon Rasam,20,0.5,0.3,4,0.5,Curry,lunch|dinner
+Garlic Rasam,25,0.8,0.5,4.5,0.8,Curry,lunch|dinner
+Mysore Rasam,30,1.0,0.5,5,1.0,Curry,lunch|dinner
+Beans Poriyal,70,2.5,3.0,9,3.5,Side Dish,lunch|dinner
+Cabbage Poriyal,65,2.0,3.0,8,3.0,Side Dish,lunch|dinner
+Carrot Poriyal,72,2.0,3.0,10,3.0,Side Dish,lunch|dinner
+Beetroot Poriyal,78,2.5,3.0,11,3.0,Side Dish,lunch|dinner
+Snake Gourd Poriyal,55,1.5,2.5,7,2.0,Side Dish,lunch|dinner
+Chow Chow Poriyal,45,1.5,2.0,6,2.0,Side Dish,lunch|dinner
+Raw Banana Poriyal,85,1.5,3.5,13,2.5,Side Dish,lunch|dinner
+Karamani Sundal,125,7.0,2.0,20,5.0,Snack,snack
+Pattani Sundal,110,6.5,1.5,18,5.0,Snack,snack
+Chana Sundal,130,7.5,2.5,20,5.0,Snack,snack
+Sweet Corn Sundal,115,4.0,2.5,22,3.0,Snack,snack
+Kadalai Sundal,120,6.0,2.0,20,5.0,Snack,snack
+Appala Vadam,310,15.0,5.0,48,4.0,Side Dish,lunch|dinner
+Vathal,280,4.0,12.0,40,3.0,Side Dish,lunch|dinner
+Thuvaiyal,60,2.0,3.0,6,2.0,Side Dish,lunch|dinner
+Ellu Thuvaiyal,90,3.0,6.0,6,2.5,Side Dish,lunch|dinner
+Kothavarangai Poriyal,55,3.0,2.0,7,3.5,Side Dish,lunch|dinner
+Murungai keerai Poriyal,50,3.5,2.0,6,4.0,Side Dish,lunch|dinner
+Palak Curry,65,3.0,2.5,8,3.5,Curry,lunch|dinner
+Keerai Sambar,60,3.5,1.5,8,3.5,Curry,lunch|dinner
+Paruppu Usili,130,7.0,5.0,14,4.0,Side Dish,lunch|dinner
+Vazhaipoo Vadai,160,5.5,7.0,20,3.0,Snack,snack
+Vazhakkai Bajji,180,2.5,8.0,24,2.5,Snack,snack
+Onion Bhaji,210,3.5,11.0,24,2.0,Snack,snack
+Medhu Pakoda,225,5.0,12.0,25,2.0,Snack,snack
+Molaga Bajji,190,2.5,9.0,24,2.5,Snack,snack
+Nethili Fry,180,18.0,10.0,4,0.2,Non-Veg,lunch|dinner
+Meen Kulambu,110,14.0,4.5,4,0.8,Curry,lunch|dinner
+Meen Varuval,195,18.0,12.0,5,0.3,Non-Veg,lunch|dinner
+Chicken Chettinad Dry,200,22.0,11.0,4,0.8,Non-Veg,lunch|dinner
+Kozhi Varuval,210,21.0,12.0,5,0.5,Non-Veg,lunch|dinner
+Chicken Sukka,190,20.0,10.0,5,0.8,Non-Veg,lunch|dinner
+Mutton Kola Urundai,220,18.0,14.0,6,0.5,Non-Veg,snack
+Mutton Varuval,255,20.0,18.0,5,0.5,Non-Veg,lunch|dinner
+Emu Egg Curry,160,13.0,10.0,5,0.5,Curry,lunch|dinner
+Crab Masala,120,16.0,5.0,3,0.5,Curry,lunch|dinner
+Prawn 65,200,18.0,11.0,8,0.5,Non-Veg,snack
+Kaalan,80,3.0,3.5,10,2.0,Curry,lunch|dinner
+Erissery,95,3.5,4.0,12,3.0,Curry,lunch|dinner
+Stew,80,3.0,4.0,8,2.0,Curry,breakfast|dinner
+Veg Stew,75,2.5,3.5,9,2.0,Curry,breakfast|dinner
+Kadala Curry,140,7.0,5.0,18,5.0,Curry,breakfast|lunch
+Puttu Kadala,185,5.0,4.5,33,3.5,Breakfast,breakfast
+Appam Stew,100,2.5,2.0,18,1.0,Breakfast,breakfast|dinner
+Idiappam Kurma,135,3.5,5.0,20,2.0,Breakfast,breakfast|dinner
+"Apple, candied",134.0,1.34,2.15,29.61,0,Apples,snack
+"Apple, raw",61.0,0.17,0.15,14.8,0,Apples,snack
+"Apple, dried",243.0,0.93,0.32,65.89,0,Dried fruits,snack
+"Crisp, apple",215.0,2.81,9.59,30.18,0,Cakes and pies,snack
+"Apple, baked",113.0,0.32,3.08,22.7,0,Apples,snack
+Apple cider,46.0,0.1,0.13,11.3,0,Apple juice,snack
+"Cobbler, apple",217.0,2.05,8.66,33.56,0,Cakes and pies,snack
+"Croissants, apple",1060.0,7.4,8.7,37.1,0,Baked Products,breakfast|snack
+"Pie, apple",296.0,2.7,15.28,37.55,0,Cakes and pies,snack
+"Strudel, apple",281.0,1.96,14.08,37.18,0,Cakes and pies,snack
+Apple pie filling,100.0,0.1,0.1,26.1,0,Apples,snack
+"Apple juice, 100%",48.0,0.09,0.25,11.34,0,Apple juice,snack
+Apple salad with dressing,180.0,1.45,14.24,12.2,0,Other fruits and fruit salads,snack
+"Cake or cupcake, apple",376.0,2.41,17.5,52.52,0,Cakes and pies,snack
+"Fruit butters, apple",173.0,0.39,0.3,42.5,0,Sweets,snack
+"Rose-apples, raw",105.0,0.6,0.3,5.7,0,Fruits and Fruit Juices,snack
+"Carrots, raw, salad with apples",181.0,0.85,16.02,8.59,0,"Coleslaw, non-lettuce salads",lunch|dinner
+"Banana, baked",161.0,0.82,3.21,32.43,0,Bananas,snack
+"Banana, raw",97.0,0.74,0.28,22.71,0,Bananas,snack
+Banana nectar,74.0,0.26,0.13,18.01,0,Fruit drinks,snack
+Banana pudding,160.0,2.57,4.26,28.0,0,Pudding,snack
+Banana split,199.0,2.42,6.88,32.59,0,Ice cream and frozen dairy desserts,snack
+"Bananas, raw",371.0,1.09,0.33,22.8,0,Fruits and Fruit Juices,snack
+"Bananas, overripe, raw",85.0,0.73,0.22,20.1,0,Fruits and Fruit Juices,snack
+"Cake or cupcake, banana",379.0,2.47,17.51,53.07,0,Cakes and pies,snack
+"Melon, banana (Navajo)",90.0,0.84,0.2,4.06,0,American Indian/Alaska Native Foods,snack
+"Pepper, banana, raw",27.0,1.66,0.45,5.35,0,Vegetables and Vegetable Products,lunch|dinner
+"Peppers, banana, raw",27.0,1.66,0.45,5.35,0,Other vegetables and combinations,lunch|dinner
+"Pie, banana cream",284.0,2.42,16.17,32.35,0,Cakes and pies,snack
+"Snacks, banana chips",519.0,2.3,33.6,58.4,0,Snacks,snack
+"Orange, raw",50.0,0.92,0.14,11.78,0,Citrus fruits,snack
+"Marmalade, orange",246.0,0.3,0.0,66.3,0,Sweets,snack
+Orange Blossom,98.0,0.57,0.26,9.32,0,Liquor and cocktails,snack
+Orange chicken,262.0,14.46,12.68,22.46,0,Stir-fry and soy-based sauce mixtures,snack
+"Sherbet, orange",144.0,1.1,2.0,30.4,0,Sweets,snack
+"Orange, canned, NFS",46.0,0.6,0.04,11.82,0,Citrus fruits,snack
+"Beverages, carbonated, orange",201.0,0.0,0.0,12.3,0,Beverages,snack
+"Orange peel, raw",405.0,1.5,0.2,25.0,0,Fruits and Fruit Juices,snack
+"Orange, canned, in syrup",55.0,0.59,0.04,14.07,0,Citrus fruits,snack
+"Oranges, raw, Florida",46.0,0.7,0.21,11.5,0,Fruits and Fruit Juices,snack
+"Oranges, raw, navels",47.0,0.91,0.15,11.8,0,Fruits and Fruit Juices,snack
+"Oranges, raw, with peel",262.0,1.3,0.3,15.5,0,Fruits and Fruit Juices,snack
+"Tomatoes, orange, raw",67.0,1.16,0.19,3.18,0,Vegetables and Vegetable Products,lunch|dinner
+"Grapes, raw",83.0,0.9,0.2,19.4,0,Grapes,snack
+"Grape juice, 100%",66.0,0.18,0.28,15.73,0,Other fruit juice,snack
+"Grape leaves, canned",69.0,4.27,1.97,11.7,0,Vegetables and Vegetable Products,lunch|dinner
+"Grape leaves, raw",390.0,5.6,2.12,17.3,0,Vegetables and Vegetable Products,lunch|dinner
+"Grapes, muscadine, raw",238.0,0.81,0.47,13.9,0,Fruits and Fruit Juices,snack
+"Tomatoes, grape, raw",27.0,0.83,0.63,5.51,0,Vegetables and Vegetable Products,lunch|dinner
+"Beverages, carbonated, grape soda",180.0,0.0,0.0,11.2,0,Beverages,snack
+"Beverages, grape drink, canned",61.0,0.0,0.0,15.7,0,Beverages,snack
+"Grape juice drink, light",23.0,0.06,0.1,5.51,0,Fruit drinks,snack
+Grape leaves stuffed with rice,168.0,2.28,11.95,13.88,0,Rice mixed dishes,lunch|dinner
+"Beverages, grape juice drink, canned",237.0,0.0,0.0,14.6,0,Beverages,snack
+"Beverages, OCEAN SPRAY, Cran Grape",224.0,0.21,0.0,13.2,0,Beverages,snack
+"Grape juice, 100%, with calcium added",62.0,0.37,0.13,14.77,0,Other fruit juice,snack
+Stuffed grape leaves with beef and rice,228.0,8.15,17.03,11.3,0,Meat mixed dishes,lunch|dinner
+Stuffed grape leaves with lamb and rice,271.0,8.17,21.52,11.89,0,Meat mixed dishes,lunch|dinner
+"Mango, raw",60.0,0.82,0.38,14.98,0,Mango and papaya,snack
+"Mango, canned",65.0,0.62,0.3,16.22,0,Mango and papaya,snack
+"Mango, frozen",60.0,0.82,0.38,14.98,0,Mango and papaya,snack
+Mango nectar,51.0,0.11,0.06,13.12,0,Fruit drinks,snack
+"Mango, dried",319.0,2.45,1.18,78.58,0,Dried fruits,snack
+"Mangos, raw",60.0,0.82,0.38,15.0,0,Fruits and Fruit Juices,snack
+"Mango nectar, canned",51.0,0.11,0.06,13.1,0,Fruits and Fruit Juices,snack
+"Mango, dried, sweetened",1340.0,2.45,1.18,78.6,0,Fruits and Fruit Juices,snack
+"Beverages, V8 SPLASH Smoothies, Peach Mango",37.0,1.22,0.0,7.76,0,Beverages,snack
+"Yogurt, Greek, 2% fat, mango, CHOBANI",93.0,7.64,1.69,11.8,0,Dairy and Egg Products,lunch|dinner
+"Beverages, V8 SPLASH Juice Drinks, Mango Peach",33.0,0.0,0.0,8.23,0,Beverages,snack
+"Beverages, V8 V-FUSION Juices, Peach Mango",49.0,0.41,0.0,11.4,0,Beverages,snack
+"Fruit juice smoothie, NAKED JUICE, MIGHTY MANGO",262.0,0.42,0.0,15.0,0,Fruits and Fruit Juices,snack
+"Salsa, red, homemade",34.0,1.44,0.19,6.74,0,Tomato-based condiments,snack
+"Pear, raw",59.0,0.37,0.15,15.18,0,Pears,snack
+Pear nectar,60.0,0.11,0.01,15.76,0,Fruit drinks,snack
+"Pear, dried",262.0,1.87,0.63,69.7,0,Dried fruits,snack
+"Pears, raw",57.0,0.36,0.14,15.2,0,Fruits and Fruit Juices,snack
+"Pear, Asian, raw",42.0,0.5,0.23,10.65,0,Pears,snack
+"Pear, canned, in syrup",59.0,0.18,0.05,15.15,0,Pears,snack
+"Pear, canned, NFS",52.0,0.2,0.06,13.47,0,Pears,snack
+"Pears, asian, raw",176.0,0.5,0.23,10.6,0,Fruits and Fruit Juices,snack
+"Pears, raw, bartlett",238.0,0.38,0.16,15.1,0,Fruits and Fruit Juices,snack
+"Prickly pears, raw",172.0,0.73,0.51,9.57,0,Fruits and Fruit Juices,snack
+"Pear, canned, juice pack",45.0,0.23,0.07,11.79,0,Pears,snack
+"Pears, dried, sulfured, uncooked",1100.0,1.87,0.63,69.7,0,Fruits and Fruit Juices,snack
+"Pears, raw, red anjou",62.0,0.33,0.14,14.9,0,Fruits and Fruit Juices,snack
+"Strawberries, raw",36.0,0.64,0.22,7.96,0,Strawberries,snack
+"Strawberries, canned",92.0,0.56,0.26,23.53,0,Strawberries,snack
+"Strawberries, frozen",35.0,0.43,0.11,9.13,0,Strawberries,snack
+"Pie, strawberry",289.0,2.88,11.6,44.22,0,Cakes and pies,snack
+"Toppings, strawberry",1060.0,0.2,0.1,66.3,0,Sweets,snack
+"Cake or cupcake, strawberry",326.0,2.22,12.89,50.25,0,Cakes and pies,snack
+"Cake, strawberry shortcake",214.0,3.31,4.73,40.09,0,Cakes and pies,snack
+"Guavas, strawberry, raw",289.0,0.58,0.6,17.4,0,Fruits and Fruit Juices,snack
+"Ice creams, strawberry",803.0,3.2,8.4,27.6,0,Sweets,snack
+"McDONALD'S, Strawberry Sundae",158.0,3.19,3.95,28.1,0,Fast Foods,snack
+Strawberry drink syrup,261.0,0.0,0.02,65.1,0,"Jams, syrups, toppings",snack
+"Strawberry juice, 100%",23.0,0.42,0.14,5.17,0,Other fruit juice,snack
+"Strawberry milk, NFS",65.0,3.2,2.06,8.54,0,"Flavored milk, reduced fat",snack
+"Strawberry milk, whole",86.0,3.03,2.97,11.79,0,"Flavored milk, whole",snack
+"Fast foods, sundae, strawberry",732.0,4.09,5.13,29.2,0,Fast Foods,snack
+"Kefir, lowfat, strawberry, LIFEWAY",62.0,3.39,0.9,10.2,0,Dairy and Egg Products,lunch|dinner
+SILK Strawberry soy yogurt,94.0,2.35,1.18,18.2,0,Legumes and Legume Products,snack
+"Strawberries, frozen, sweetened, sliced",402.0,0.53,0.13,25.9,0,Fruits and Fruit Juices,snack
+"Blueberries, raw",64.0,0.7,0.31,14.57,0,Blueberries and other berries,snack
+"Blueberries, frozen",51.0,0.42,0.64,12.17,0,Blueberries and other berries,snack
+"Blueberries, dried",317.0,2.5,2.5,80.0,0,Dried fruits,snack
+Blueberry juice,42.0,0.46,0.2,9.47,0,Other fruit juice,snack
+Blueberry syrup,341.0,0.0,0.0,85.13,0,"Jams, syrups, toppings",snack
+"Pie, blueberry",300.0,2.82,15.52,37.95,0,Cakes and pies,snack
+"Blueberries, dried, sweetened",1330.0,2.5,2.5,80.0,0,Fruits and Fruit Juices,snack
+"Blueberries, frozen, sweetened",355.0,0.4,0.13,22.0,0,Fruits and Fruit Juices,snack
+Blueberry pie filling,181.0,0.41,0.2,44.38,0,"Jams, syrups, toppings",snack
+"Muffins, blueberry, toaster-type",1310.0,4.6,9.5,53.3,0,Baked Products,breakfast|snack
+"Pie fillings, blueberry, canned",757.0,0.41,0.2,44.4,0,Sweets,snack
+"Pie, blueberry, commercially prepared",971.0,1.8,10.0,34.9,0,Baked Products,breakfast|snack
+SILK Blueberry soy yogurt,88.0,2.35,1.18,17.1,0,Legumes and Legume Products,snack
+"Yogurt, Greek, Blueberry, CHOBANI",82.0,7.23,0.24,12.8,0,Dairy and Egg Products,lunch|dinner
+Potato patty,171.0,3.89,11.32,13.49,0,French fries and other fried white potatoes,snack
+"Soup, potato",90.0,1.51,4.71,10.53,0,"Soups, cream-based",lunch|dinner
+Potato pancake,196.0,4.47,10.8,20.64,0,Mashed potatoes and white potato mixtures,snack
+Stewed potatoes,103.0,1.99,3.39,16.26,0,Mashed potatoes and white potato mixtures,snack
+"Potato, NFS",126.0,1.87,4.25,20.45,0,"White potatoes, baked or boiled",breakfast|snack
+"Bread, potato",1120.0,12.5,3.13,47.1,0,Baked Products,breakfast|snack
+"Gnocchi, potato",135.0,2.44,6.33,17.2,0,"Pasta mixed dishes, excludes macaroni and cheese",lunch|dinner
+Potato flour,357.0,6.9,0.34,83.1,0,Vegetables and Vegetable Products,lunch|dinner
+Potato pancakes,268.0,6.08,14.8,27.8,0,Vegetables and Vegetable Products,lunch|dinner
+"Soup, potato with meat",109.0,3.78,6.43,8.81,0,"Soups, cream-based",lunch|dinner
+"Potato tots, NFS",237.0,1.9,15.46,24.4,0,French fries and other fried white potatoes,snack
+"Potato tots, school",166.0,2.02,9.16,19.34,0,French fries and other fried white potatoes,snack
+Sweet potato tots,191.0,2.26,9.35,37.3,0,Fried vegetables,lunch|dinner
+"Potato, boiled, NFS",126.0,1.87,4.25,20.45,0,"White potatoes, baked or boiled",breakfast|snack
+"Potato chips, NFS",532.0,6.39,33.98,53.83,0,Potato chips,snack
+"Potato chips, plain",532.0,6.39,33.98,53.83,0,Potato chips,snack
+"Potato chips, unsalted",537.0,6.25,30.3,59.66,0,Potato chips,snack
+"Potato sticks, flavored",517.0,6.63,34.06,52.77,0,Potato chips,snack
+"Bread, sweet potato",241.0,8.64,2.87,45.38,0,Yeast breads,breakfast|snack
+"Pie, sweet potato",269.0,4.96,9.75,41.08,0,Cakes and pies,snack
+Sweet potato chips,529.0,2.92,32.19,56.54,0,"Tortilla, corn, other chips",snack
+Sweet potato paste,305.0,0.49,0.34,75.14,0,"Jams, syrups, toppings",snack
+"Sweet potato, candied",187.0,1.18,3.48,37.69,0,Other red and orange vegetables,lunch|dinner
+"Sweet potato, NFS",115.0,1.58,4.53,17.14,0,Other red and orange vegetables,lunch|dinner
+"Sweet potato tots, school",192.0,2.27,9.39,37.45,0,Fried vegetables,lunch|dinner
+"Sweet potato, casserole or mashed",99.0,1.89,2.56,17.22,0,Other red and orange vegetables,lunch|dinner
+"Bread, sweet potato, toasted",265.0,9.5,3.15,49.87,0,Yeast breads,breakfast|snack
+"Sweet potato fries, frozen",192.0,2.27,9.39,37.45,0,Fried vegetables,lunch|dinner
+"Sweet potato fries, NFS",192.0,2.27,9.39,37.45,0,Fried vegetables,lunch|dinner
+"Sweet potato fries, school",192.0,2.27,9.39,37.45,0,Fried vegetables,lunch|dinner
+"Sweet potato leaves, raw",175.0,2.49,0.51,8.82,0,Vegetables and Vegetable Products,lunch|dinner
+"Sweet potato, canned, mashed",101.0,1.98,0.2,23.2,0,Vegetables and Vegetable Products,lunch|dinner
+"Sweet potato, cooked, as ingredient",82.0,1.65,0.4,18.05,0,Not included in a food category,snack
+"Tomatoes, raw",20.0,0.82,0.31,4.04,0,Tomatoes,snack
+Guacamole with tomatoes,145.0,1.87,13.09,8.09,0,"Dips, gravies, other sauces",snack
+"Soup, tomato",19.0,0.65,0.41,3.64,0,"Soups, broth-based",lunch|dinner
+"Tomatoes, scalloped",110.0,2.7,4.97,14.1,0,Vegetable dishes,lunch|dinner
+"Tomato products, canned, sauce, with tomato tidbits",134.0,1.32,0.39,7.09,0,Vegetables and Vegetable Products,lunch|dinner
+Sun-dried tomatoes,258.0,14.11,2.97,55.76,0,Tomatoes,snack
+"Tomatoes, red, ripe, canned, packed in tomato juice",16.0,0.79,0.25,3.47,0,Vegetables and Vegetable Products,lunch|dinner
+Fried green tomatoes,216.0,3.68,12.84,21.78,0,Fried vegetables,lunch|dinner
+Tomato juice cocktail,22.0,0.93,0.31,3.87,0,Vegetable juice,snack
+"Rice, white, with tomatoes and/or tomato-based sauce, fat added",107.0,2.0,2.18,19.41,0,Rice mixed dishes,lunch|dinner
+"Tomatoes, canned, cooked",43.0,0.82,3.04,3.23,0,Tomatoes,snack
+"Tomatoes, fresh, cooked",50.0,1.08,3.42,4.71,0,Tomatoes,snack
+Bacon and tomato dressing,326.0,1.8,35.0,2.0,0,Salad dressings and vegetable oils,lunch|dinner
+"Beans and rice, with tomatoes",137.0,4.7,3.46,21.9,0,"Bean, pea, legume dishes",lunch|dinner
+Pork with chili and tomatoes,95.0,11.64,3.99,2.68,0,Meat mixed dishes,lunch|dinner
+"Soup, cream of tomato",70.0,1.21,4.68,6.39,0,"Soups, cream-based",lunch|dinner
+"Soup, tomato, canned",34.0,0.63,0.33,7.65,0,"Soups, broth-based",lunch|dinner
+Stewed potatoes with tomatoes,87.0,1.71,3.29,12.89,0,Mashed potatoes and white potato mixtures,snack
+"Onions, raw",38.0,0.86,0.08,8.46,0,Onions,snack
+"Bread, onion",238.0,8.81,2.95,44.32,0,Yeast breads,breakfast|snack
+"Onions, green, raw",32.0,1.83,0.19,7.34,0,Onions,snack
+"Onions, green, cooked",63.0,2.09,3.21,8.37,0,Onions,snack
+"Onions, pearl, cooked",50.0,0.7,2.59,6.49,0,Onions,snack
+"Onion dip, regular",346.0,2.15,35.77,3.92,0,"Dips, gravies, other sauces",snack
+"Onion dip, light",166.0,2.0,12.36,11.87,0,"Dips, gravies, other sauces",snack
+"Bread, onion, toasted",262.0,9.68,3.24,48.7,0,Yeast breads,breakfast|snack
+"DENNY'S, onion rings",385.0,5.29,22.2,41.0,0,Restaurant Foods,snack
+Fried onion rings,352.0,4.19,19.82,39.94,0,Fried vegetables,lunch|dinner
+Onion flavored rings,499.0,7.7,22.6,65.1,0,"Tortilla, corn, other chips",snack
+"Onions, cooked, as ingredient",47.0,1.29,0.12,10.99,0,Not included in a food category,snack
+"Onions, dehydrated flakes",349.0,8.95,0.46,83.3,0,Vegetables and Vegetable Products,lunch|dinner
+"Onions, for use on a sandwich",38.0,0.86,0.08,8.46,0,Vegetables on a sandwich,lunch|dinner
+"Onions, red, raw",44.0,0.94,0.1,9.93,0,Vegetables and Vegetable Products,lunch|dinner
+"Onions, sweet, raw",32.0,0.8,0.08,7.55,0,Vegetables and Vegetable Products,lunch|dinner
+"Onions, welsh, raw",142.0,1.9,0.4,6.5,0,Vegetables and Vegetable Products,lunch|dinner
+"Onions, white, raw",35.0,0.89,0.13,7.68,0,Vegetables and Vegetable Products,lunch|dinner
+"Onions, yellow, raw",38.0,0.83,0.05,8.61,0,Vegetables and Vegetable Products,lunch|dinner
+Garlic sauce,683.0,1.43,74.02,2.87,0,"Dips, gravies, other sauces",snack
+"Garlic, cooked",142.0,6.58,0.38,28.03,0,Mustard and other condiments,snack
+"Garlic, raw",143.0,6.62,0.38,28.2,0,Mustard and other condiments,snack
+"Roll, garlic",309.0,10.84,6.44,51.92,0,Rolls and buns,snack
+"Garlic bread, frozen",1460.0,8.36,16.6,41.7,0,Baked Products,breakfast|snack
+"Garlic bread, NFS",349.0,8.34,16.58,41.64,0,Yeast breads,breakfast|snack
+"Garlic bread, from frozen",350.0,8.36,16.61,41.72,0,Yeast breads,breakfast|snack
+"PIZZA HUT, breadstick, parmesan garlic",1430.0,12.2,12.9,44.5,0,Fast Foods,snack
+"Garlic bread, from fast food / restaurant",349.0,8.34,16.58,41.64,0,Yeast breads,breakfast|snack
+"Garlic bread, with melted cheese, from frozen",343.0,10.36,17.1,36.86,0,Yeast breads,breakfast|snack
+"Garlic bread, with parmesan cheese, from frozen",351.0,8.78,16.83,41.14,0,Yeast breads,breakfast|snack
+"Shrimp in garlic sauce, Puerto Rican style",281.0,11.56,24.96,2.45,0,Seafood mixed dishes,lunch|dinner
+"Garlic bread, with parmesan cheese, from fast food / restaurant",351.0,8.76,16.8,41.06,0,Yeast breads,breakfast|snack
+"Garlic bread, with melted cheese, from fast food / restaurant",339.0,11.41,17.34,34.21,0,Yeast breads,breakfast|snack
+"Fast foods, breadstick, soft, prepared with garlic and parmesan cheese",1430.0,12.2,12.9,44.5,0,Fast Foods,snack
+"HORMEL ALWAYS TENDER, Pork Loin Filets, Lemon Garlic-Flavored",492.0,17.8,4.16,1.79,0,Pork Products,lunch|dinner
+"Abiyuch, raw",290.0,1.5,0.1,17.6,0,Fruits and Fruit Juices,snack

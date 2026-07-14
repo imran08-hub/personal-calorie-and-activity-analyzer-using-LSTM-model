@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}Meal Plan – NutriAI{% endblock %}
+{% block content %}
+<div class="ph">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+    <div>
+      <div class="ph-title">🍽️ {{ plan_name }}</div>
+      <div class="ph-sub">Personalized daily food plan based on your profile</div>
+    </div>
+    <a href="{{ url_for('download_food_db') }}" style="display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:8px;background:linear-gradient(135deg,#a8e063,#56ab2f);color:#111;font-weight:600;font-size:.8rem;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Food DB
+    </a>
+  </div>
+</div>
+
+<!-- Goal Banner -->
+<div class="card" style="background:linear-gradient(135deg,
+  {% if goal=='lose' %}rgba(86,171,47,.15),rgba(168,224,99,.08){% elif goal=='gain' %}rgba(255,165,0,.15),rgba(255,200,50,.08){% else %}rgba(100,149,237,.15),rgba(135,206,250,.08){% endif %});
+  border:1px solid {% if goal=='lose' %}var(--green){% elif goal=='gain' %}var(--orange){% else %}var(--blue){% endif %}44;">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <div style="font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:.3rem">
+        {% if goal=='lose' %}🏃 Weight Loss{% elif goal=='gain' %}💪 Weight Gain{% else %}⚖️ Maintain Weight{% endif %}
+      </div>
+      <div style="color:var(--text2);font-size:.85rem">
+        BMI: <strong>{{ '%.1f'|format(bmi) }}</strong> ({{ status }}) • 
+        Current Weight: <strong>{{ user.weight }} kg</strong> •
+        TDEE: <strong>{{ tdee }} kcal/day</strong>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:2rem;font-weight:800;color:{% if goal=='lose' %}var(--green){% elif goal=='gain' %}var(--orange){% else %}var(--blue){% endif %}">
+        {{ target_cal }} kcal
+      </div>
+      <div style="font-size:.75rem;color:var(--text3)">Daily Target</div>
+    </div>
+  </div>
+</div>
+
+<!-- Weekly Projection -->
+<div class="card" style="border-left:3px solid {% if goal=='lose' %}var(--green){% elif goal=='gain' %}var(--orange){% else %}var(--blue){% endif %};">
+  <div style="display:flex;align-items:center;gap:.75rem">
+    <div style="font-size:1.5rem">📊</div>
+    <div>
+      <div style="font-weight:600;color:var(--text)">{{ projection_msg }}</div>
+      <div style="color:var(--text3);font-size:.8rem;margin-top:.2rem">
+        Plan total: {{ total_cal }} kcal • {{ total_prot }}g protein • {{ total_fat }}g fat
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Today's Meal Plan -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:1.5rem">
+  {% set meal_icons = {'breakfast':'🌅','lunch':'☀️','dinner':'🌙','snack':'🍪'} %}
+  {% set meal_colors = {'breakfast':'#a8e063','lunch':'#56ab2f','dinner':'#6C63FF','snack':'#ff9800'} %}
+  {% for mtype in ['breakfast','lunch','dinner','snack'] %}
+  {% set m = today_plan[mtype] %}
+  <div class="card" style="border-top:3px solid {{ meal_colors[mtype] }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+      <div style="font-size:1.1rem;font-weight:700;color:var(--text)">
+        {{ meal_icons[mtype] }} {{ mtype|capitalize }}
+      </div>
+      <div style="font-size:.7rem;padding:.2rem .6rem;border-radius:20px;background:{{ meal_colors[mtype] }}22;color:{{ meal_colors[mtype] }};font-weight:600">
+        Budget: {{ m.budget }} kcal
+      </div>
+    </div>
+
+    <!-- Selected Meal -->
+    <div style="background:rgba(255,255,255,.03);border-radius:10px;padding:.85rem;margin-bottom:.75rem;border:1px solid var(--border2)">
+      <div style="font-weight:600;color:var(--text);font-size:.95rem;margin-bottom:.3rem">{{ m.food }}</div>
+      <div style="color:var(--text3);font-size:.78rem;margin-bottom:.5rem">{{ m.qty }}</div>
+      <div style="display:flex;gap:.8rem;font-size:.75rem">
+        <span style="color:var(--green)">● {{ m.cal }} kcal</span>
+        <span style="color:var(--blue)">● {{ m.protein }}g P</span>
+        <span style="color:var(--orange)">● {{ m.fat }}g F</span>
+      </div>
+    </div>
+
+    <!-- Alternative Options -->
+    <details style="cursor:pointer">
+      <summary style="font-size:.75rem;color:var(--text3);font-weight:500;margin-bottom:.4rem">
+        Other options ▾
+      </summary>
+      <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.4rem">
+        {% for opt in m.all_options %}
+        {% if opt.food != m.food %}
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:.75rem;padding:.35rem .5rem;border-radius:6px;background:rgba(255,255,255,.02)">
+          <span style="color:var(--text2)">{{ opt.food }}</span>
+          <span style="color:var(--green);font-weight:500">{{ opt.cal }} kcal</span>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </details>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Tips Section -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title"><div class="card-icon">💡</div> Tips for {{ plan_name }}</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:.6rem;padding:.5rem 0">
+    {% for tip in tips %}
+    <div style="display:flex;align-items:flex-start;gap:.6rem">
+      <span style="color:var(--green);font-weight:700;font-size:.85rem;min-width:18px">{{ loop.index }}.</span>
+      <span style="color:var(--text2);font-size:.85rem">{{ tip }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Calorie Split Chart -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title"><div class="card-icon">📈</div> Calorie Distribution</div>
+  </div>
+  <div style="display:flex;gap:.5rem;height:24px;border-radius:12px;overflow:hidden;margin:.75rem 0">
+    <div style="width:{{ (cal_split.breakfast*100)|round }}%;background:linear-gradient(135deg,#a8e063,#56ab2f);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:600;color:#111">{{ (cal_split.breakfast*100)|round|int }}%</div>
+    <div style="width:{{ (cal_split.lunch*100)|round }}%;background:linear-gradient(135deg,#56ab2f,#2d7a0f);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:600;color:#fff">{{ (cal_split.lunch*100)|round|int }}%</div>
+    <div style="width:{{ (cal_split.dinner*100)|round }}%;background:linear-gradient(135deg,#6C63FF,#4834d4);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:600;color:#fff">{{ (cal_split.dinner*100)|round|int }}%</div>
+    <div style="width:{{ (cal_split.snack*100)|round }}%;background:linear-gradient(135deg,#ff9800,#e68900);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:600;color:#111">{{ (cal_split.snack*100)|round|int }}%</div>
+  </div>
+  <div style="display:flex;justify-content:space-around;font-size:.72rem;color:var(--text3)">
+    <span>🌅 Breakfast</span><span>☀️ Lunch</span><span>🌙 Dinner</span><span>🍪 Snack</span>
+  </div>
+</div>
+{% endblock %}

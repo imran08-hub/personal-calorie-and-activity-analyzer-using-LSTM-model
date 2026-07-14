@@ -1,4 +1,4 @@
-# NutriAI v3 - AI-Powered Nutrition & Weight Prediction System
+# NutriAI v3 - Nutrition & Weight Prediction System
 
 ![Version](https://img.shields.io/badge/version-3.0-blue)
 ![Status](https://img.shields.io/badge/status-Production%20Ready-brightgreen)

@@ -1,0 +1,362 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - NutriAI{% endblock %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+{% endblock %}
+{% block content %}
+<script>
+  const CAL_TARGET = {{ ctarget| int }};
+  const PROT_TARGET = {{ p_target| int }};
+  const FAT_TARGET = {{ f_target| int }};
+</script>
+
+<div class="ph">
+  <div class="ph-title">
+    {% if now_hour < 12 %}Good morning{% elif now_hour < 18 %}Good afternoon{% else %}Good evening{% endif %}, {{
+      user['name'].split()[0] }} </div>
+      <div class="ph-sub">
+        {{ today_str }}
+        <span class="ph-badge">BMI {{ bmi }}</span>
+        <span class="ph-badge"
+          style="background:rgba({{ '245,166,35' if status=='Overweight' else ('255,95,87' if status=='Obese' else ('168,224,99' if status=='Normal' else '79,172,254')) }},.1);color:{{ status_color }};border-color:{{ status_color }}20">{{
+          status }}</span>
+        <span class="ph-badge"
+          style="background:rgba(79,172,254,.08);color:var(--blue);border-color:rgba(79,172,254,.2)">Goal: {{ goal |
+          capitalize }} weight</span>
+      </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card" style="--glow-color:rgba(168,224,99,.12)">
+      <div class="stat-glow"></div>
+      <div class="stat-lbl">BMI Index</div>
+      <div class="stat-val">{{ bmi }}</div>
+      <div class="stat-sub"><span class="stat-dot" style="background:{{ status_color }};"></span>{{ status }}</div>
+    </div>
+    <div class="stat-card" style="--glow-color:rgba(245,166,35,.1)">
+      <div class="stat-glow"></div>
+      <div class="stat-lbl">Calorie Target</div>
+      <div class="stat-val">{{ ctarget }}<span class="stat-unit"> kcal</span></div>
+      <div class="stat-sub"><span class="stat-dot orange"></span>TDEE {{ tdee }} / BMR {{ bmr }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-glow"></div>
+      <div class="stat-lbl">Consumed Today</div>
+      <div class="stat-val" id="sv-cal">{{ total_cal }}<span class="stat-unit"> kcal</span></div>
+      <div class="stat-sub"><span class="stat-dot {% if remaining < 0 %}red{% endif %}"></span><span id="rem-text">{{
+          remaining }} remaining</span></div>
+    </div>
+    <div class="stat-card" style="--glow-color:rgba(79,172,254,.1)">
+      <div class="stat-glow"></div>
+      <div class="stat-lbl">Protein</div>
+      <div class="stat-val" id="sv-prot">{{ total_prot }}<span class="stat-unit">g</span></div>
+      <div class="stat-sub"><span class="stat-dot blue"></span>Target {{ p_target }}g</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">&#127861;</div> Log Food
+        </div>
+        <span style="font-size:.72rem;color:var(--green)" id="api-status">Local DB + USDA API</span>
+      </div>
+      <div class="food-form">
+        <div class="ff-field full-width autocomplete-wrapper">
+          <label class="ff-label">Food Item</label>
+          <input class="ff-input big" id="food-input"
+            placeholder="e.g. 2 eggs, 100g chicken breast, 1 cup rice, dosa, 1 banana..." autocomplete="off" />
+          <div id="autocomplete-list" class="autocomplete-items"></div>
+        </div>
+        <div class="ff-field">
+          <label class="ff-label">Meal Type</label>
+          <select class="ff-select" id="meal-sel">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="snack">Snack</option>
+          </select>
+        </div>
+        <button class="add-btn" id="add-btn" onclick="logFood()">Add +</button>
+      </div>
+      <div class="nut-preview" id="nut-prev">
+        <span style="color:var(--text3)">Type a food item to see nutrition info</span>
+      </div>
+
+      <div class="divider" style="margin:1rem 0"></div>
+      <div class="log-scroll" id="log-list">
+        {% for log in logs %}
+        <div class="log-item">
+          <div class="log-left">
+            <div class="li-name">{{ log['food_name'] }}</div>
+            <div class="li-meal {{ log['meal_type'] }}">{{ log['meal_type'] }}</div>
+          </div>
+          <div class="li-macros">
+            <span><span class="ndot g"></span>{{ log['calories'] }} kcal</span>
+            <span><span class="ndot b"></span>{{ log['protein'] }}g P</span>
+            <span><span class="ndot o"></span>{{ log['fat'] }}g F</span>
+          </div>
+          <div class="li-time">{{ ((log['log_time'] or '12:00') | string)[:5] }}</div>
+        </div>
+        {% else %}
+        <div class="log-empty" id="log-empty">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">&#127869;</div>No meals logged today
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">&#128202;</div> Macros
+        </div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-row"><span class="prog-label">Calories</span><span class="prog-val" id="pc-cal">{{ total_cal }}
+            / {{ ctarget }} kcal</span></div>
+        <div class="prog-track">
+          <div class="prog-fill" id="pf-cal" style="width:{{ [((total_cal/ctarget)*100)|int,100]|min }}%;"></div>
+        </div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-row"><span class="prog-label">Protein</span><span class="prog-val" id="pc-prot">{{ total_prot
+            }} / {{ p_target }}g</span></div>
+        <div class="prog-track">
+          <div class="prog-fill blue" id="pf-prot"
+            style="width:{{ [((total_prot/p_target)*100)|int if p_target>0 else 0,100]|min }}%;"></div>
+        </div>
+      </div>
+      <div class="prog-item">
+        <div class="prog-row"><span class="prog-label">Fat</span><span class="prog-val" id="pc-fat">{{ total_fat }} / {{
+            f_target }}g</span></div>
+        <div class="prog-track">
+          <div class="prog-fill orange" id="pf-fat"
+            style="width:{{ [((total_fat/f_target)*100)|int if f_target>0 else 0,100]|min }}%;"></div>
+        </div>
+      </div>
+      <div style="height:140px;margin-top:1rem"><canvas id="donutChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">&#128161;</div> Suggestions
+        </div>
+      </div>
+      <div class="suggestions-wrap">
+        <div class="suggestions-title" id="suggestionsTitle">South Indian Style</div>
+        <div class="suggestions-grid" id="suggestionsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">&#128197;</div> 7-Day Calories
+        </div>
+      </div>
+      <div class="chart-wrap h250"><canvas id="weekChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="card-icon">&#127919;</div> Today's Status
+        </div>
+      </div>
+      <div class="chart-wrap h250"><canvas id="statusChart"></canvas></div>
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block scripts %}
+  <script>
+    Chart.defaults.color = '#4b5563'; Chart.defaults.font.family = "'Outfit',sans-serif";
+    const gc = 'rgba(255,255,255,.05)';
+    let totalCal = {{ total_cal| int }}, totalProt = {{ total_prot | int }}, totalFat = {{ total_fat | int }};
+
+    const donut = new Chart(document.getElementById('donutChart'), { type: 'doughnut', data: { labels: ['Consumed', 'Remaining'], datasets: [{ data: [totalCal, Math.max(0, CAL_TARGET - totalCal)], backgroundColor: ['#a8e063', 'rgba(255,255,255,.06)'], borderColor: ['#56ab2f', 'rgba(255,255,255,.08)'], borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '72%', plugins: { legend: { position: 'bottom', labels: { padding: 14, font: { size: 11 }, color: '#94a3b8' } }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.toFixed(0)} kcal` } } } } });
+
+    const sevenData = {{ seven| tojson }};
+    const weekChart = new Chart(document.getElementById('weekChart'), { type: 'bar', data: { labels: sevenData.map((d, i) => i === 6 ? 'Today' : d.date.slice(5)), datasets: [{ label: 'Calories', data: sevenData.map(d => d.cal), backgroundColor: sevenData.map((_, i) => i === 6 ? 'rgba(168,224,99,.9)' : 'rgba(168,224,99,.25)'), borderColor: sevenData.map((_, i) => i === 6 ? '#56ab2f' : 'rgba(168,224,99,.4)'), borderWidth: 1, borderRadius: 8, borderSkipped: false }, { type: 'line', label: 'Target', data: sevenData.map(() => CAL_TARGET), borderColor: 'rgba(245,166,35,.6)', borderDash: [5, 4], borderWidth: 1.5, pointRadius: 0, fill: false }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: gc } }, y: { grid: { color: gc }, beginAtZero: true } } } });
+
+    const statusChart = new Chart(document.getElementById('statusChart'), { type: 'bar', data: { labels: ['Calories', 'Protein (g)', 'Fat (g)'], datasets: [{ label: 'Consumed', data: [totalCal, totalProt, totalFat], backgroundColor: ['rgba(168,224,99,.8)', 'rgba(79,172,254,.8)', 'rgba(245,166,35,.8)'], borderRadius: 6 }, { label: 'Target', data: [CAL_TARGET, PROT_TARGET, FAT_TARGET], backgroundColor: 'rgba(255,255,255,.07)', borderRadius: 6 }] }, options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, color: '#94a3b8' } } }, scales: { x: { grid: { color: gc } }, y: { grid: { color: 'transparent' } } } } });
+
+    /* ===== AUTOCOMPLETE & LOOKUP ===== */
+    let lastNutrition = null, debTimer, acTimer;
+    const foodInput = document.getElementById('food-input');
+    const nutPrev = document.getElementById('nut-prev');
+    const apiStatus = document.getElementById('api-status');
+    const acList = document.getElementById('autocomplete-list');
+
+    foodInput.addEventListener('input', () => {
+      clearTimeout(debTimer);
+      clearTimeout(acTimer);
+      const val = foodInput.value.trim();
+      closeAllLists();
+
+      if (!val) {
+        nutPrev.innerHTML = '<span style="color:var(--text3)">Type a food item to see nutrition info</span>';
+        lastNutrition = null;
+        return;
+      }
+
+      // Show suggestions after 1 character
+      if (val.length >= 1) {
+        acTimer = setTimeout(() => searchFood(val), 150);
+      }
+
+      nutPrev.innerHTML = '<span style="color:var(--text3)">Looking up...</span>';
+      debTimer = setTimeout(() => lookupFood(val), 450);
+    });
+
+    async function searchFood(val) {
+      try {
+        const r = await fetch('/search_food?q=' + encodeURIComponent(val));
+        const items = await r.json();
+        if (items.length > 0) {
+          closeAllLists();
+          items.forEach(item => {
+            const div = document.createElement("div");
+            div.innerHTML = `<span>&#128269;</span> ${item}`;
+            div.addEventListener("mousedown", function (e) {
+              e.preventDefault(); // Prevent input blur
+              foodInput.value = item;
+              closeAllLists();
+              lookupFood(item);
+            });
+            acList.appendChild(div);
+          });
+        }
+      } catch (e) { }
+    }
+
+    function closeAllLists() {
+      acList.innerHTML = '';
+    }
+
+    document.addEventListener("mousedown", e => {
+      if (e.target !== foodInput && !acList.contains(e.target)) closeAllLists();
+    });
+
+    async function lookupFood(food) {
+      try {
+        const r = await fetch('/get_nutrition?food=' + encodeURIComponent(food));
+        const n = await r.json();
+        if (n.calories > 0 || n.protein > 0) {
+          lastNutrition = n;
+          apiStatus.textContent = n.source + ' active';
+          apiStatus.style.color = 'var(--green)';
+          nutPrev.className = 'nut-preview live';
+          nutPrev.innerHTML = `
+        <span class="nut-chip"><span class="ndot g"></span><strong>${n.calories}</strong> kcal</span>
+        <span class="nut-chip"><span class="ndot b"></span><strong>${n.protein}g</strong> P</span>
+        <span class="nut-chip"><span class="ndot o"></span><strong>${n.fat}g</strong> F</span>
+        <span class="nut-chip"><strong>${n.carbs}g</strong> C</span>
+        <span class="src-badge">${n.source}</span>`;
+        } else {
+          nutPrev.innerHTML = '<span style="color:var(--text3)">Food not found in database</span>';
+        }
+      } catch (e) {
+        nutPrev.innerHTML = '<span style="color:var(--text3)">Lookup error</span>';
+      }
+    }
+
+    async function logFood() {
+      const food = foodInput.value.trim(); if (!food) return;
+      const meal = document.getElementById('meal-sel').value;
+      const btn = document.getElementById('add-btn');
+
+      btn.disabled = true;
+      btn.textContent = '...';
+
+      try {
+        const body = { food: food, meal: meal };
+        if (lastNutrition) {
+          body.calories = lastNutrition.calories; body.protein = lastNutrition.protein;
+          body.fat = lastNutrition.fat; body.carbs = lastNutrition.carbs; body.source = lastNutrition.source;
+        }
+        const res = await fetch('/log_food', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const d = await res.json();
+        if (d.success) {
+          totalCal = Math.round((totalCal + d.calories) * 10) / 10;
+          totalProt = Math.round((totalProt + d.protein) * 10) / 10;
+          totalFat = Math.round((totalFat + d.fat) * 10) / 10;
+          updateUI(); addLogItem(d);
+          showToast(d.food + ' - ' + d.calories + ' kcal logged (' + d.source + ')', 'success');
+          foodInput.value = ''; lastNutrition = null;
+          nutPrev.innerHTML = '<span style="color:var(--text3)">Type a food item to see nutrition info</span>';
+          closeAllLists();
+        } else {
+          showToast(d.error || 'Failed to log food', 'error');
+        }
+      } catch (e) {
+        showToast('Network error while logging food', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Add +';
+      }
+    }
+    foodInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') logFood();
+      if (e.key === 'Escape') closeAllLists();
+    });
+
+
+    function addLogItem(d) {
+      const list = document.getElementById('log-list');
+      const empty = document.getElementById('log-empty'); if (empty) empty.remove();
+      const el = document.createElement('div'); el.className = 'log-item';
+      el.innerHTML = '<div class="log-left"><div class="li-name">' + d.food + '</div><div class="li-meal ' + d.meal + '">' + d.meal + '</div></div><div class="li-macros"><span><span class="ndot g"></span>' + d.calories + ' kcal</span><span><span class="ndot b"></span>' + d.protein + 'g P</span><span><span class="ndot o"></span>' + d.fat + 'g F</span></div><div class="li-time">' + d.time + '</div>';
+      list.prepend(el);
+    }
+
+    /* ===== SUGGESTIONS ===== */
+    async function loadSuggestions() {
+      const meal = document.getElementById('meal-sel').value;
+      const grid = document.getElementById('suggestionsGrid');
+      const title = document.getElementById('suggestionsTitle');
+      if (!grid) return;
+      title.textContent = `South Indian ${meal.charAt(0).toUpperCase() + meal.slice(1)} Suggestions`;
+      try {
+        const r = await fetch(`/get_suggestions?meal=${meal}`);
+        const d = await r.json();
+        grid.innerHTML = '';
+        d.suggestions.forEach(s => {
+          const chip = document.createElement('div');
+          chip.className = 'suggest-chip';
+          chip.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>${s}`;
+          chip.onclick = () => {
+            foodInput.value = s;
+            foodInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            foodInput.focus();
+            foodInput.dispatchEvent(new Event('input'));
+          };
+          grid.appendChild(chip);
+        });
+      } catch (e) { console.error(e); }
+    }
+    document.getElementById('meal-sel').addEventListener('change', loadSuggestions);
+    window.addEventListener('DOMContentLoaded', loadSuggestions);
+
+    function updateUI() {
+      const rem = Math.round((CAL_TARGET - totalCal) * 10) / 10;
+      document.getElementById('sv-cal').innerHTML = totalCal + '<span class="stat-unit"> kcal</span>';
+      document.getElementById('sv-prot').innerHTML = totalProt + '<span class="stat-unit">g</span>';
+      document.getElementById('rem-text').textContent = rem + ' remaining';
+      document.getElementById('pf-cal').style.width = Math.min(100, (totalCal / CAL_TARGET) * 100) + '%';
+      document.getElementById('pf-prot').style.width = Math.min(100, (totalProt / PROT_TARGET) * 100) + '%';
+      document.getElementById('pf-fat').style.width = Math.min(100, (totalFat / FAT_TARGET) * 100) + '%';
+      document.getElementById('pc-cal').textContent = totalCal + ' / ' + CAL_TARGET + ' kcal';
+      document.getElementById('pc-prot').textContent = totalProt + ' / ' + PROT_TARGET + 'g';
+      document.getElementById('pc-fat').textContent = totalFat + ' / ' + FAT_TARGET + 'g';
+      donut.data.datasets[0].data = [totalCal, Math.max(0, CAL_TARGET - totalCal)]; donut.update('none');
+      statusChart.data.datasets[0].data = [totalCal, totalProt, totalFat]; statusChart.update('none');
+      weekChart.data.datasets[0].data[6] = totalCal; weekChart.update('none');
+    }
+
+  </script>
+  {% endblock %}

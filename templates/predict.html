@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% block title %}AI Predict – NutriAI{% endblock %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+{% endblock %}
+{% block content %}
+<div class="ph">
+  <div class="ph-title">AI Weight Prediction</div>
+  <div class="ph-sub">
+    LSTM-powered 7-day forecast based on your last 15 days of diet data
+    <span class="ph-badge" style="background:rgba(79,172,254,.08);color:var(--blue);border-color:rgba(79,172,254,.2)">Goal: {{ goal | capitalize }} weight</span>
+    <span class="ph-badge">TDEE: {{ tdee }} kcal</span>
+  </div>
+</div>
+
+<!-- Data Sufficiency Indicator -->
+<div class="card" style="margin-bottom:1rem;padding:1rem 1.2rem">
+  <div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.82rem;color:var(--text2)">📊 Data Status:</span>
+    <div style="display:flex;gap:.3rem">
+      {% for i in range(15) %}
+      <div style="width:28px;height:8px;border-radius:4px;background:{% if i < days_with_data %}var(--green){% else %}rgba(255,255,255,.08){% endif %}"></div>
+      {% endfor %}
+    </div>
+    <span style="font-size:.78rem;color:{% if days_with_data >= 7 %}var(--green){% else %}#f5a623{% endif %}">
+      {{ days_with_data }}/15 days logged
+      {% if days_with_data < 7 %} — Need {{ 7 - days_with_data }} more day(s) for LSTM{% endif %}
+      {% if days_with_data >= 7 and model_loaded %} — LSTM Active ✓{% endif %}
+    </span>
+  </div>
+</div>
+
+<!-- Last 7 Days Input Data -->
+{% if last_15_data %}
+<div class="card" style="margin-bottom:1.5rem">
+  <div class="card-header">
+    <div class="card-title">
+      <div class="card-icon">&#128203;</div> Your Last 15 Days (LSTM Input)
+    </div>
+  </div>
+  <table class="pred-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Calories</th>
+        <th>Protein (g)</th>
+        <th>Fat (g)</th>
+        <th>Carbs (g)</th>
+        <th>Burned (kcal)</th>
+        <th>vs TDEE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in last_15_data %}
+      {% set surplus = d.calories - tdee if d.calories > 0 else 0 %}
+      <tr{% if d.calories == 0 %} style="opacity:.4"{% endif %}>
+        <td>{{ d.date }}</td>
+        <td class="mono" style="color:var(--green)">{{ d.calories|round(1) }}</td>
+        <td class="mono" style="color:var(--blue)">{{ d.protein|round(1) }}</td>
+        <td class="mono" style="color:var(--orange, #f5a623)">{{ d.fat|round(1) }}</td>
+        <td class="mono">{{ d.carbs|round(1) }}</td>
+        <td class="mono" style="color:var(--red)">{% if d.calories_burned > 0 %}-{% endif %}{{ d.calories_burned|round(0)|int }}</td>
+        <td class="mono {% if d.calories == 0 %}{% elif surplus > 0 %}delta-pos{% elif surplus < 0 %}delta-neg{% else %}delta-neu{% endif %}">
+          {% if d.calories > 0 %}
+            {% if surplus > 0 %}+{% endif %}{{ surplus|round(0)|int }} kcal
+          {% else %}
+            No data
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- ======= RUN PREDICTION BUTTON (shown when no prediction yet) ======= -->
+{% if not prediction_run %}
+<div style="display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:2.5rem 1rem;margin-bottom:1.5rem">
+  <div style="font-size:3rem">🤖</div>
+  <div style="font-size:1.05rem;font-weight:600;color:var(--text)">Ready to Predict Your Weight?</div>
+  <div style="font-size:.85rem;color:var(--text3);text-align:center;max-width:380px">
+    Click below to run the LSTM AI model and get your personalized 7-day weight forecast based on your nutrition data.
+  </div>
+  <a href="/predict?run=1" style="
+    display:inline-flex;align-items:center;gap:.6rem;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    color:#080b10;font-weight:700;font-size:1rem;
+    padding:.85rem 2.2rem;border-radius:12px;
+    text-decoration:none;letter-spacing:.02em;
+    box-shadow:0 4px 24px rgba(79,172,254,.35);
+    transition:transform .15s,box-shadow .15s;
+  " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(79,172,254,.5)'"
+     onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(79,172,254,.35)'">
+    ⚡ Run AI Prediction
+  </a>
+  {% if days_with_data < 7 %}
+  <div style="font-size:.78rem;color:#f5a623;text-align:center">
+    ⚠️ You have only {{ days_with_data }}/15 days of data. Log more meals for better accuracy.
+  </div>
+  {% endif %}
+</div>
+
+{% else %}
+
+<!-- ======= PREDICTION RESULTS (shown only after clicking Run) ======= -->
+
+<!-- Prediction Message Banner -->
+<div class="pred-banner {% if days_with_data < 7 %}pred-banner-warn{% endif %}" style="margin-bottom:1.2rem">
+  {% if days_with_data >= 7 and model_loaded %}
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="12" y1="8" x2="12" y2="12" />
+    <line x1="12" y1="16" x2="12.01" y2="16" />
+  </svg>
+  {% else %}
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2">
+    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+    <line x1="12" y1="9" x2="12" y2="13" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+  {% endif %}
+  {{ msg }}
+</div>
+
+<!-- ======= Exercise Impact Card ======= -->
+<div class="stats-row" style="margin-bottom: 1.5rem;">
+  <div class="stat-card" style="--glow-color:rgba(255,95,87,.08); flex: 1;">
+    <div class="stat-glow"></div>
+    <div class="stat-lbl">Exercise Impact</div>
+    <div class="stat-val" style="font-size: 1.4rem; color: var(--red);">
+      -{{ ex_stats.weekly_loss_kg }} <span class="stat-unit">kg / week</span>
+    </div>
+    <div class="stat-sub">
+      <span class="stat-dot red"></span>
+      Based on {{ ex_stats.avg_daily_burned }} kcal avg daily burn
+    </div>
+  </div>
+  <div class="stat-card" style="--glow-color:rgba(168,224,99,.12); flex: 1;">
+    <div class="stat-glow"></div>
+    <div class="stat-lbl">Daily Exercise Logic</div>
+    <div class="stat-val" style="font-size: 1.4rem; color: var(--green);">
+      -{{ ex_stats.daily_loss_kg }} <span class="stat-unit">kg / day</span>
+    </div>
+    <div class="stat-sub">
+      <span class="stat-dot green"></span>
+      Direct calorie-to-weight ratio
+    </div>
+  </div>
+</div>
+
+<!-- Prediction Graph + Table -->
+<div class="g2">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <div class="card-icon">&#129302;</div> 15-Day Weight Forecast
+      </div>
+      <span style="font-size:.72rem;color:var(--text3)">Goal: {{ goal | capitalize }}</span>
+    </div>
+    <div class="chart-wrap h280"><canvas id="predictChart"></canvas></div>
+    <!-- Manual Input Form Component -->
+    <div style="padding:1rem;margin-top:1.5rem;background:rgba(255,255,255,0.02);border-radius:8px;border:1px dashed rgba(255,255,255,0.1);display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;">
+        <span style="font-size:0.85rem;color:var(--text2);font-weight:500;">Actual Weight (Day 15):</span>
+        <input type="number" step="0.01" id="manual_input" placeholder="{{ user['weight'] }}" style="width:120px;background:var(--bg);border:1px solid rgba(79,172,254,0.4);color:var(--text);padding:0.4rem;border-radius:6px;font-family:'Outfit',sans-serif;text-align:center;">
+        <button onclick="updateChart()" style="background:var(--blue);color:white;border:none;padding:0.4rem 1.4rem;border-radius:6px;cursor:pointer;font-weight:500;transition:opacity 0.2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">Plot Comparison Line</button>
+    </div>
+  </div>
+
+</div>
+{% endif %}
+{% endblock %}
+{% block scripts %}
+{% if prediction_run %}
+<script>
+  Chart.defaults.color = '#4b5563'; Chart.defaults.font.family = "'Outfit',sans-serif";
+  const gc = 'rgba(255,255,255,.05)';
+  const preds = {{ preds| tojson }};
+  const base = {{ user['weight'] }};
+  const goal = '{{ goal }}';
+  const labels = ['Mar 31', ...preds.map(p => p.date)];
+  const data = [base, ...preds.map(p => p.weight)];
+
+  // Create initial Actual data array with spans
+  // Point 0 = base weight, Point 15 = base weight (default)
+  let actualData = [base];
+  for (let i = 1; i <= 14; i++) actualData.push(null);
+  actualData.push(base);
+
+  // Color based on goal and actual trend
+  const lastWeight = data[data.length - 1];
+  const totalChange = lastWeight - base;
+  let trendColor;
+  if (goal === 'lose') {
+    trendColor = totalChange < 0 ? '#a8e063' : '#ff5f57';
+  } else if (goal === 'gain') {
+    trendColor = totalChange > 0 ? '#a8e063' : '#ff5f57';
+  } else {
+    trendColor = Math.abs(totalChange) < 0.3 ? '#a8e063' : '#f5a623';
+  }
+
+  let chartInstance = new Chart(document.getElementById('predictChart'), {
+    type: 'line',
+    data: {
+      labels, 
+      datasets: [
+        {
+          label: 'AI Predicted Weight (kg)', 
+          data: data,
+          borderColor: trendColor,
+          backgroundColor: trendColor.replace(')', ',.07)').replace('rgb', 'rgba'),
+          pointBackgroundColor: data.map((v, i) => i === 0 ? '#94a3b8' : (
+            goal === 'lose' ? (v < base ? '#a8e063' : '#ff5f57') :
+            goal === 'gain' ? (v > base ? '#a8e063' : '#ff5f57') :
+            (Math.abs(v - base) < 0.3 ? '#a8e063' : '#f5a623')
+          )),
+          pointBorderColor: '#080b10', pointBorderWidth: 2, pointRadius: 5,
+          fill: true, tension: .35, borderWidth: 2.5
+        },
+        {
+          label: 'Actual Reality (kg)',
+          data: actualData,
+          borderColor: '#4facfe',
+          backgroundColor: 'transparent',
+          pointBackgroundColor: '#4facfe',
+          pointBorderColor: '#080b10', pointBorderWidth: 2, pointRadius: 6,
+          fill: false, tension: 0, borderWidth: 2.5, borderDash: [5, 5],
+          spanGaps: true
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: true, labels: {color: '#8b949e'} },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${parseFloat(ctx.parsed.y).toFixed(2)} kg` } }
+      },
+      scales: {
+        x: { grid: { color: gc }, ticks: { color: '#4b5563', font: { size: 11 } } },
+        y: { grid: { color: gc }, ticks: { color: '#4b5563', callback: v => parseFloat(v).toFixed(1) + ' kg' } }
+      }
+    }
+  });
+
+  // Dynamic Update Function
+  function updateChart() {
+    let inputEl = document.getElementById('manual_input');
+    let val = parseFloat(inputEl.value);
+    // if blank or not number, default to no weight lost
+    if (isNaN(val)) val = base; 
+    
+    // Set the 15th index (which is day 15) to the newly entered actual weight
+    chartInstance.data.datasets[1].data[15] = val;
+    chartInstance.update();
+  }
+</script>
+{% endif %}
+{% endblock %}

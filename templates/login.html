@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Login – NutriAI{% endblock %}
+{% block auth_content %}
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="logo-icon">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="none" stroke="#a8e063" stroke-width="2"/>
+          <circle cx="14" cy="14" r="4" fill="#a8e063"/>
+        </svg>
+      </div>
+      NutriAI
+    </div>
+    <div class="auth-sub">Sign in to your nutrition dashboard</div>
+    {% if error %}<div class="error-msg">{{ error }}</div>{% endif %}
+    <form method="POST">
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required autocomplete="email"/>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required autocomplete="current-password"/>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:.5rem">Sign In →</button>
+    </form>
+    <div class="auth-footer">
+      Don't have an account? <a href="{{ url_for('register') }}">Create one free</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
